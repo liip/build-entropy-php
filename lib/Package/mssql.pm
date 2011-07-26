@@ -39,13 +39,16 @@ sub build_postconfigure {
 sub php_extension_configure_flags {
 	my $self = shift @_;
 	my (%args) = @_;
-	return "--with-mssql=shared," . $self->config()->prefix();
+	my $prefix = $self->config()->prefix();
+	return "--with-mssql=shared,$prefix --with-pdo-dblib=shared,$prefix";
 }
+
+
 
 
 sub php_dso_extension_names {
 	my $self = shift @_;
-	return $self->shortname();
+	return qw(mssql pdo_dblib);
 }
 
 
