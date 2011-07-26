@@ -28,17 +28,17 @@ sub filename {
 sub subpath_for_check {
     return "lib/php/extensions/no-debug-non-zts-20100525/xdebug.so";
 }
-#sub download {
-#    my $self = shift @_;
-#    $_->download() foreach $self->dependencies();
-#    return if ($self->is_downloaded());
-#    $self->cd_srcdir();
-#    my $url = $self->svn_url();
-#    $self->shell("/usr/bin/svn co $url " . $self->packagename());
-#}
+sub download {
+    my $self = shift @_;
+    $_->download() foreach $self->dependencies();
+    return if ($self->is_downloaded());
+    $self->cd_srcdir();
+    my $url = $self->svn_url();
+    $self->shell("/usr/bin/svn co $url " . $self->packagename());
+}
 
-#sub extract {
-#}
+sub extract {
+}
 
 sub patch {
 }
