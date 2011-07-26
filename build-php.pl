@@ -85,15 +85,15 @@ $solr->install();
 my $oauth = Package::oauth->new(config => $config, variant => 'apache2');
 $oauth->install();
 
-my $xslcache = Package::xslcache->new(config => $config, variant => 'apache2');
-$xslcache->install();
+#my $xslcache = Package::xslcache->new(config => $config, variant => 'apache2');
+#$xslcache->install();
 
 # Needs libYAML to be integrated as well, left for later
 # my $yaml = Package::yaml->new(config => $config, variant => 'apache2');
 # $yaml->install();
 
-my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
-$mongo->install();
+#my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
+#$mongo->install();
 
 my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 $phpunit->install();
