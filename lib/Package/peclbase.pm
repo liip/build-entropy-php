@@ -55,7 +55,7 @@ sub install {
 
 	$self->build();
 
-	my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20090626/';
+	my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20100525/';
 
 	$self->shell(sprintf("sudo cp modules/%s.so $dst", lc($self->{PACKAGE_NAME})));
 	$self->extension_ini($dst);
@@ -69,7 +69,7 @@ sub extension_ini{
 
 sub subpath_for_check {
 	my $self = shift;
-	return sprintf("lib/php/extensions/no-debug-non-zts-20090626/%s.so", lc($self->{PACKAGE_NAME}));
+	return sprintf("lib/php/extensions/no-debug-non-zts-20100525/%s.so", lc($self->{PACKAGE_NAME}));
 }
 
 1;

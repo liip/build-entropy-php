@@ -20,7 +20,7 @@ use Package::APC;
 use Package::solr;
 use Package::oauth;
 use Package::xslcache;
-# use Package::yaml;
+#use Package::yaml;
 use Package::mongo;
 use Package::phpunit;
 
@@ -49,7 +49,8 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.3.6',
+#	version              => '5.3.6',
+	version              => '5.4.0alpha2',
 	release              => 1,
 	debug                => 1,
 );
@@ -60,20 +61,20 @@ $php->install();
 my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
 $xdebug->install();
 
-my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
-$upload->install();
+#my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
+#$upload->install();
 
 my $intl = Package::intl->new(config => $config, variant => 'apache2');
 $intl->install();
 
-my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
-$memcached->install();
+#my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
+#$memcached->install();
 
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
 
-my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
-$xhprof->install();
+#my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
+#$xhprof->install();
 
 my $APC = Package::APC->new(config => $config, variant => 'apache2');
 $APC->install();

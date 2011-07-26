@@ -8,7 +8,7 @@ use base qw(Package);
 our $VERSION = '2.1-dev';
 
 sub base_url {
-    return "http://svn.xdebug.org/cgi-bin/viewvc.cgi/xdebug/trunk/?root=xdebug";
+    return "http://xdebug.org/files/xdebug-2.1.1.tgz";
 }
 
 #svn co svn://svn.xdebug.org/svn/xdebug/xdebug/trunk xdebug
@@ -26,20 +26,19 @@ sub filename {
 }
 
 sub subpath_for_check {
-    return "lib/php/extensions/no-debug-non-zts-20090626/xdebug.so";
+    return "lib/php/extensions/no-debug-non-zts-20100525/xdebug.so";
 }
+#sub download {
+#    my $self = shift @_;
+#    $_->download() foreach $self->dependencies();
+#    return if ($self->is_downloaded());
+#    $self->cd_srcdir();
+#    my $url = $self->svn_url();
+#    $self->shell("/usr/bin/svn co $url " . $self->packagename());
+#}
 
-sub download {
-    my $self = shift @_;
-    $_->download() foreach $self->dependencies();
-    return if ($self->is_downloaded());
-    $self->cd_srcdir();
-    my $url = $self->svn_url();
-    $self->shell("/usr/bin/svn co $url " . $self->packagename());
-}
-
-sub extract {
-}
+#sub extract {
+#}
 
 sub patch {
 }
@@ -47,7 +46,7 @@ sub patch {
 sub package_filelist {
     my $self = shift @_;
     return qw(
-        lib/php/extensions/no-debug-non-zts-20090626/xdebug.so
+        lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
     );  
 }
 
@@ -73,7 +72,7 @@ sub install {
 
     $self->build();
 
-    my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20090626/';
+    my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20100525/';
 
     $self->shell("sudo cp modules/xdebug.so $dst");
     $self->shell({silent => 0}, "echo 'zend_extension=" . $dst . $self->shortname() . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");

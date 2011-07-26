@@ -14,8 +14,8 @@ use base qw(Package);
 # enable --enable-pcntl and fastcgi for the cgi version
 
 sub base_url {
-	return "http://ch.php.net/distributions";
-#	return "http://downloads.php.net/johannes";
+#return "http://ch.php.net/distributions";
+	return "http://downloads.php.net/stas";
 }
 
 
