@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '';
+#our $VERSION = '';
 our $VERSION = '20110310';
 
 sub base_url {
