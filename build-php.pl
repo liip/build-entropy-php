@@ -61,8 +61,8 @@ $php->install();
 my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
 $xdebug->install();
 
-#my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
-#$upload->install();
+my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
+$upload->install();
 
 my $intl = Package::intl->new(config => $config, variant => 'apache2');
 $intl->install();
