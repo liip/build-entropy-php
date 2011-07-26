@@ -15,15 +15,24 @@ use base qw(Package);
 
 sub base_url {
 #return "http://ch.php.net/distributions";
-	return "http://downloads.php.net/stas";
+	#return "http://downloads.php.net/stas";
+	return "http://snaps.php.net";
 }
 
 
 sub packagename {
 	my $self = shift @_;
-	return "php-" . $self->config()->version();
+	return "php" . $self->config()->version();
 }
 
+sub packagesrcdir {
+	my $self = shift @_;
+	my $dlpath = $self->download_path();
+	my $srcdir = `tar -tzf  $dlpath  | head -1`;
+	$srcdir =~ s/^\s+//;
+	$srcdir =~ s/\s+$//;
+	return $self->config()->srcdir() . "/" .$srcdir; 
+}
 
 sub dependency_names {
 	return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
@@ -214,5 +223,6 @@ sub cc {
 	#   i.e. ours and not the system-supplied libxml
 	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
 }
+
 
 1;
