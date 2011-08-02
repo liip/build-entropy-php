@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.2.44';
+our $VERSION = '1.2.46';
 
 sub base_url {
 	return "http://downloads.sourceforge.net/project/libpng/libpng12/$VERSION/";
