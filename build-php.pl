@@ -37,6 +37,7 @@ my $config = Config->new(
 	cpus                 => 2,
 	basedir              => $basedir,
 	prefix               => '/usr/local/php5',
+	phpsrcdir            => undef,
 	orahome              => "$basedir/install",
 	mysql_install_prefix => undef,
 	variants             => {
@@ -54,8 +55,8 @@ my $config = Config->new(
 	release              => 1,
 	debug                => 1,
 );
-
 my $php = Package::php5->new(config => $config, variant => 'apache2');
+$config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
 my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');

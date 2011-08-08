@@ -17,7 +17,7 @@ sub unpack {
 
 sub packagesrcdir {
 	my $self = shift @_;
-	return $self->config()->srcdir() . "/php-" . $self->config()->version() . "/ext/intl"; 
+	return $self->config()->phpsrcdir . "/ext/intl"; 
 }
 
 
