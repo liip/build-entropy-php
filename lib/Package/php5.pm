@@ -167,12 +167,12 @@ sub install {
 	$self->shell({silent => 0}, "cp php.ini-recommended $prefix/lib/");
 	$self->shell({silent => 0}, "cp php.ini-development $prefix/lib/");
 	$self->shell({silent => 0}, "cp php.ini-development $prefix/lib/php.ini");
-	unless (-e "$prefix/etc/pear.conf.default") {
+	#unless (-e "$prefix/etc/pear.conf.default") {
 		$self->shell($self->make_command(), "install-pear");
 #		$self->shell({silent => 0}, qq!sed -e 's#"[^"]*$prefix\\([^"]*\\)#"$prefix\\1"#g' < $prefix/etc/pear.conf > $prefix/etc/pear.conf.default!);
 #		$self->shell({silent => 0}, "rm $prefix/etc/pear.conf");
 		$self->shell({silent => 0}, "mv $prefix/etc/pear.conf $prefix/etc/pear.conf.default");
-	}
+	#}
 	$self->shell({silent => 0}, "test -d $prefix/php.d || mkdir $prefix/php.d");
 	$self->shell({slient => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
 
