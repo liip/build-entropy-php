@@ -5,11 +5,11 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '0.91';
+our $VERSION = '0.82';
 
 
 sub base_url {
-	return "http://ibiblio.org/pub/Linux/ALPHA/freetds/stable";
+	return "http://ibiblio.org/pub/Linux/ALPHA/freetds/old/".$VERSION;
 }
 
 
