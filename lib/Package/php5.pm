@@ -91,7 +91,7 @@ sub configure_flags {
 
 sub build_postconfigure {
 	my $self = shift @_;
-	$self->shell("sed -i '' -e 's#\$echo#\$ECHO#g' libtool");
+	#$self->shell("sed -i '' -e 's#\$echo#\$ECHO#g' libtool");
 }
 
 sub build_preconfigure {
@@ -106,7 +106,7 @@ sub build_preconfigure {
 	}
 
 	$self->cd_packagesrcdir();
-    $self->shell("aclocal");
+    #$self->shell("aclocal");
     $self->shell("./buildconf --force");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_prefix() . "/lib/*.a");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_tmp_prefix() . "/lib/*.a");
