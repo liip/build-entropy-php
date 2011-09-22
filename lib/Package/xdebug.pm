@@ -81,7 +81,7 @@ sub install {
     $self->shell({silent => 0}, "echo '[xdebug]' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.remote_enable=on' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.default_enable=on' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    $self->shell({silent => 0}, "echo 'xdebug.remote_autostart=on' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo 'xdebug.remote_autostart=off' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.remote_port=9000' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.remote_host=localhost' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.profiler_enable_trigger=1' >> /tmp/50-extension-" . $self->shortname() . ".ini");
