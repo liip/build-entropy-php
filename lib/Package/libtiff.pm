@@ -8,7 +8,7 @@ use base qw(Package);
 our $VERSION = '3.9.1';
 
 sub base_url {
-	return "ftp://ftp.remotesensing.org/pub/libtiff/";
+	return "http://download.osgeo.org/libtiff/";
 }
 
 sub packagename {
