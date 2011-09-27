@@ -71,7 +71,7 @@ sub configure_flags {
         # '--with-gmp', less important than iconv, so leaving it for later
 		'--enable-exif',
 		'--with-xmlrpc',
-	    '--enable-exif',
+		'--enable-exif',
 		'--enable-soap',
 		'--enable-sqlite-utf8',
 		'--enable-wddx',
@@ -89,6 +89,7 @@ sub configure_flags {
 		'--enable-calendar',
 		'--with-iodbc',
 		'--with-mhash',
+		'--enable-fpm',
 		'--with-mysql=mysqlnd',
 		'--with-mysqli=mysqlnd',
 		'--with-pdo-mysql=mysqlnd',
