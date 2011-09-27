@@ -54,8 +54,9 @@ sub makedirs {
 
 sub zend_module_api_no {
 	my $self = shift @_;
-	my $srcdir = $self->srcdir();
-	my $value = qx(grep 'define ZEND_MODULE_API_NO' $srcdir/php-*/Zend/zend_modules.h | cut -f 3 -d ' ');
+	my $srcdir = $self->phpsrcdir();
+	#my $value = qx(grep 'define ZEND_MODULE_API_NO' $srcdir/php*/Zend/zend_modules.h | cut -f 3 -d ' ');
+	my $value = qx(grep 'define ZEND_MODULE_API_NO' $srcdir/Zend/zend_modules.h | cut -f 3 -d ' ');
 	chomp($value);
 	die "Unable to find zend module api no, PHP source dir not yet unpacked?" unless ($value);
 	return $value;

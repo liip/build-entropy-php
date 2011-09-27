@@ -14,16 +14,28 @@ use base qw(Package);
 # enable --enable-pcntl and fastcgi for the cgi version
 
 sub base_url {
-	return "http://ch.php.net/distributions";
-#	return "http://downloads.php.net/johannes";
+#return "http://ch.php.net/distributions";
+	#return "http://downloads.php.net/stas";
+	return "http://snaps.php.net";
 }
 
 
 sub packagename {
 	my $self = shift @_;
-	return "php-" . $self->config()->version();
+	return "php" . $self->config()->version();
 }
 
+sub packagesrcdir {
+	my $self = shift @_;
+	my $dlpath = $self->download_path();
+	my $exists = -e $dlpath;
+	$self->download() unless ($exists);
+
+	my $srcdir = `tar -tzf  $dlpath  | head -1`;
+	$srcdir =~ s/^\s+//;
+	$srcdir =~ s/\s+$//;
+	return $self->config()->srcdir() . "/" .$srcdir; 
+}
 
 sub dependency_names {
 	return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
