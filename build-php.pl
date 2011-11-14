@@ -93,8 +93,8 @@ $oauth->install();
 # my $yaml = Package::yaml->new(config => $config, variant => 'apache2');
 # $yaml->install();
 
-#my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
-#$mongo->install();
+my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
+$mongo->install();
 
 my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 $phpunit->install();
