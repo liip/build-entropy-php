@@ -50,8 +50,8 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-#	version              => '5.3.6',
-	version              => '5.4-latest',
+version              => '5.4.0RC1',
+#	version              => '5.4-latest',
 	release              => 1,
 	debug                => 1,
 );
@@ -74,8 +74,8 @@ $intl->install();
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
 
-#my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
-#$xhprof->install();
+my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
+$xhprof->install();
 
 my $APC = Package::APC->new(config => $config, variant => 'apache2');
 $APC->install();
