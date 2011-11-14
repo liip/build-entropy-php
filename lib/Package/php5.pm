@@ -14,15 +14,25 @@ use base qw(Package);
 # enable --enable-pcntl and fastcgi for the cgi version
 
 sub base_url {
-#return "http://ch.php.net/distributions";
-	#return "http://downloads.php.net/stas";
-	return "http://snaps.php.net";
+	my $self = shift @_;
+	my $v = $self->config()->version();
+	if ($v ~~ /latest/) {
+		return "http://snaps.php.net";
+	} else { 
+		return "http://downloads.php.net/stas";
+		#return "http://ch.php.net/distributions";
+	}
 }
 
 
 sub packagename {
 	my $self = shift @_;
-	return "php" . $self->config()->version();
+	my $v = $self->config()->version();
+	if ($v ~~ /latest/) {
+		return "php" . $self->config()->version();
+	} else {
+		return "php-" . $self->config()->version();
+	}
 }
 
 sub packagesrcdir {
