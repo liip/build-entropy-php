@@ -101,7 +101,8 @@ sub configure_flags {
 		'--with-mysql=mysqlnd',
 		'--with-mysqli=mysqlnd',
 		'--with-pdo-mysql=mysqlnd',
-		'--enable-pcntl'
+		'--enable-pcntl',
+		'--enable-zend-multibyte'
 	);
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
