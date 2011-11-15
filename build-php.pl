@@ -24,6 +24,7 @@ use Package::oauth;
 use Package::xslcache;
 # use Package::yaml;
 use Package::mongo;
+use Package::igbinary;
 use Package::phpunit;
 
 my $basedir = qx(pwd);
@@ -99,6 +100,9 @@ $xslcache->install();
 
 my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
 $mongo->install();
+
+my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
+$igbinary->install();
 
 my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 $phpunit->install();
