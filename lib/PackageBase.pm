@@ -182,7 +182,7 @@ sub make_flags {
 
 sub make_command {
 	my $self = shift @_;
-	return "MACOSX_DEPLOYMENT_TARGET=10.6 make " . $self->make_flags();
+	return "MACOSX_DEPLOYMENT_TARGET=10.7 make " . $self->make_flags();
 }
 
 sub make_install_override_list {
