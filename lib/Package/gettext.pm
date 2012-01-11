@@ -88,6 +88,11 @@ sub package_filelist {
 	);
 }
 
+sub patchfiles {
+	my $self = shift @_;
+
+	return qw(gettext.patch);
+}
 
 
 
