@@ -5,11 +5,11 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '8.2.19';
+our $VERSION = '8.2.23';
 
 
 sub base_url {
-    return "http://wwwmaster.postgresql.org/redir/376/h/source/v$VERSION/"
+    return "http://ftp.postgresql.org/pub/source/v$VERSION/"
     # return "ftp://ftp2.ch.postgresql.org/pub/mirrors/postgresql/source/v$VERSION/";
 }
 
