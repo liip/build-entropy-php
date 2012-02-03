@@ -5,15 +5,11 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.1-dev';
+our $VERSION = '2.1.3';
+
 
 sub base_url {
-    return "http://svn.xdebug.org/cgi-bin/viewvc.cgi/xdebug/trunk/?root=xdebug";
-}
-
-#svn co svn://svn.xdebug.org/svn/xdebug/xdebug/trunk xdebug
-sub svn_url {
-    return "svn://svn.xdebug.org/svn/xdebug/xdebug/trunk";
+    return "http://xdebug.org/files/";
 }
 
 sub packagename {
@@ -22,27 +18,14 @@ sub packagename {
 
 sub filename {
     my $self = shift @_;
-    return $self->packagename();
+    return $self->packagename() .".tgz";
 }
 
 sub subpath_for_check {
     return "lib/php/extensions/no-debug-non-zts-20090626/xdebug.so";
 }
 
-sub download {
-    my $self = shift @_;
-    $_->download() foreach $self->dependencies();
-    return if ($self->is_downloaded());
-    $self->cd_srcdir();
-    my $url = $self->svn_url();
-    $self->shell("/usr/bin/svn co $url " . $self->packagename());
-}
 
-sub extract {
-}
-
-sub patch {
-}
 
 sub package_filelist {
     my $self = shift @_;
