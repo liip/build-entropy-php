@@ -10,3 +10,10 @@ do
 echo  $i
 rm -rf $i
 done
+
+for i in `ls -d src/php-*`
+do
+echo  $i
+rm -rf $i
+done
+
