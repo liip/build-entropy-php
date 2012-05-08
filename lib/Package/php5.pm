@@ -19,8 +19,8 @@ sub base_url {
 	if ($v ~~ /latest/) {
 		return "http://snaps.php.net";
 	} else { 
-		return "http://downloads.php.net/stas";
-		#return "http://ch.php.net/distributions";
+		#return "http://downloads.php.net/stas";
+		return "http://ch.php.net/distributions";
 	}
 }
 
@@ -103,7 +103,8 @@ sub configure_flags {
 		'--with-mysql=mysqlnd',
 		'--with-mysqli=mysqlnd',
 		'--with-pdo-mysql=mysqlnd',
-		'--enable-pcntl'
+		'--enable-pcntl',
+		'--enable-dtrace'
 	);
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
@@ -184,12 +185,12 @@ sub install {
 		$self->shell({silent => 0}, "mv $prefix/etc/pear.conf $prefix/etc/pear.conf.default");
 	#}
 	$self->shell({silent => 0}, "test -d $prefix/php.d || mkdir $prefix/php.d");
-	$self->shell({slient => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
+	$self->shell({silent => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
 
 	$self->create_dso_ini_files();
 
-	$self->shell({slient => 0}, "sudo chown -R root:wheel '$prefix'");
-	$self->shell({slient => 0}, "test -e '$prefix/lib/php/build' || sudo ln -s '$prefix/lib/build' '$prefix/lib/php/'");
+	$self->shell({silent => 0}, "sudo chown -R root:wheel '$prefix'");
+	$self->shell({silent => 0}, "test -e '$prefix/lib/php/build' || sudo ln -s '$prefix/lib/build' '$prefix/lib/php/'");
 
 }
 

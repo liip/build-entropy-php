@@ -17,3 +17,4 @@ echo  $i
 rm -rf $i
 done
 
+rm ~/.pearrc 

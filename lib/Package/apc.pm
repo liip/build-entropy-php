@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '3.1.10-dev';
+our $VERSION = '3.1.10';
 
 sub init {
     my $self = shift;
@@ -16,25 +16,25 @@ sub init {
 
 ## just for SVN, remove if you want to download official releases */
 
-sub svn_url {
-    return "https://svn.php.net/repository/pecl/apc/trunk";
-}
+#sub svn_url {
+#    return "https://svn.php.net/repository/pecl/apc/trunk";
+#}
 
-sub download {
-    my $self = shift @_;
-    $_->download() foreach $self->dependencies();
-    return if ($self->is_downloaded());
-    $self->cd_srcdir();
-    my $url = $self->svn_url();
-    $self->shell("/usr/bin/svn co $url " . $self->packagename());
-}
+#sub download {
+#    my $self = shift @_;
+#    $_->download() foreach $self->dependencies();
+#    return if ($self->is_downloaded());
+#    $self->cd_srcdir();
+#    my $url = $self->svn_url();
+#    $self->shell("/usr/bin/svn co $url " . $self->packagename());
+#}
 
 
-sub extract {
-}
+#sub extract {
+#}
 
-sub patch {
-}
+#sub patch {
+#}
 
 ## end SVN*/
 
