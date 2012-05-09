@@ -5,25 +5,29 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '1.0.1';
+#our $VERSION = '';
+our $VERSION = '1.8.0';
 
 sub init {
-	my $self = shift;
-	$self->SUPER::init(@_);
-	$self->{PACKAGE_NAME} = 'twig';
-	$self->{VERSION} = $VERSION;
+        my $self = shift;
+        $self->SUPER::init(@_);
+        $self->{PACKAGE_NAME} = 'twig';
+        $self->{VERSION} = $VERSION;
 }
-
 
 
 sub base_url {
-    return "https://github.com/fabpot/Twig/tarball/master";
+	return "http://php-osx.liip.ch/vendorpkgs";
 }
 
-
-sub url {
-	my $self = shift @_;
-	return $self->base_url();// . "/" . $self->filename();
+sub packagesrcdir {
+        my $self = shift @_;
+        return $self->config()->srcdir() . "/" .  $self->packagename() . "/ext/twig/" ;
 }
 
-return 1;
+sub extension_ini{
+    my ($self, $dst) = @_;
+    $self->shell({silent => 0}, "echo ';extension=" . $dst . lc($self->shortname()) . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
+}
+
+1;
