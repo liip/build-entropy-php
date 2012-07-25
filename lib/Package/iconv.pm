@@ -6,7 +6,7 @@ use warnings;
 use base qw(Package);
 
 # our $VERSION = '1.13';
-our $VERSION = '1.11';
+our $VERSION = '1.14';
 
 
 
@@ -36,7 +36,7 @@ sub php_extension_configure_flags {
 }
 
 
-# 
+#
 # sub configure_flags {
 # 	my $self = shift @_;
 # 	return join " ", (
@@ -51,7 +51,7 @@ sub php_extension_configure_flags {
 # 	my $self = shift @_;
 # 	return $self->shortname() . '.so';
 # }
-# 
+#
 
 
 
@@ -68,7 +68,7 @@ sub package_filelist {
 	my $self = shift @_;
 	return qw(
 		lib/libiconv*.dylib
-	);	
+	);
 }
 
 

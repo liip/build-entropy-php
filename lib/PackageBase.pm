@@ -38,7 +38,7 @@ sub filename {
 
 sub packagesrcdir {
 	my $self = shift @_;
-	return $self->config()->srcdir() . "/" . $self->packagename(); 
+	return $self->config()->srcdir() . "/" . $self->packagename();
 }
 
 sub url {
@@ -77,7 +77,7 @@ sub install {
 	return undef if ($self->is_installed());
 	$self->build();
 	$self->log("installing");
-	
+
 	return 1;
 }
 
@@ -214,7 +214,7 @@ sub to_string {
 
 sub extras_dir {
 	my $self = shift @_;
-	return $self->config()->basedir() . '/extras/' . $self->shortname();	
+	return $self->config()->basedir() . '/extras/' . $self->shortname();
 }
 
 sub extras_path {
@@ -241,9 +241,9 @@ sub cc {
 	# this is a hack to override the shipping iconv.h header file with the one
 	# from the darwin source. Fix taken from:
 	# http://gorn.ch/archive/2007/11/01/leopard-native-apache-with-custom-64bit-php.html
-	my $iconv_include_override_dir = $self->config()->basedir() . "/extras/iconv/leopard-iconv-include-override";
-	return "cc -I$iconv_include_override_dir";
-	# return "cc";
+	#my $iconv_include_override_dir = $self->config()->basedir() . "/extras/iconv/leopard-iconv-include-override";
+	#return "cc -I$iconv_include_override_dir";
+	return "cc";
 }
 
 sub compiler_archflags {
@@ -266,7 +266,7 @@ sub install_prefix {
 sub install_tmp_prefix {
 	my $self = shift @_;
 	return $self->config()->basedir() . "/install-tmp";
-	
+
 }
 
 sub php_build_pre {

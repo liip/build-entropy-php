@@ -11,7 +11,7 @@ our $VERSION = '0.18.1.1';
 
 
 sub dependency_names {
-	return qw(iconv);
+	return qw();
 }
 
 
@@ -65,7 +65,7 @@ sub configure_flags {
 # sub make_install_arch {
 # 	my $self = shift @_;
 # 	my (%args) = @_;
-# 
+#
 # 	$self->shell("mkdir -p $args{prefix}/bin");
 # 	$self->SUPER::make_install_arch(%args);
 # }
@@ -81,7 +81,7 @@ sub package_filelist {
 #		lib/libgettext*.dylib lib/libasprintf*.dylib lib/libintl*.dylib
 #		php.d/50-extension-gettext.ini share/gettext
 #	);
-	
+
 	return qw(
 		lib/libgettext*.dylib lib/libasprintf*.dylib lib/libintl*.dylib
 		share/gettext
