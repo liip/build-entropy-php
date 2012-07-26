@@ -118,7 +118,7 @@ sub configure_flags {
 
 sub build_postconfigure {
 	my $self = shift @_;
-	$self->shell("sed -i '' -e 's#/lib/cpp#cpp#g' configure");
+	#$self->shell("sed -i '' -e 's#\$echo#\$ECHO#g' libtool");
 }
 
 sub build_preconfigure {
