@@ -113,11 +113,6 @@ sub configure_flags {
 
 }
 
-sub build_postconfigure {
-	my $self = shift @_;
-	$self->shell("sed -i '' -e 's#/lib/cpp#cpp#g' configure");
-}
-
 sub build_preconfigure {
 	my $self = shift @_;
 	my (%args) = @_;
@@ -132,6 +127,8 @@ sub build_preconfigure {
 	$self->cd_packagesrcdir();
     #$self->shell("aclocal");
     #$self->shell("./buildconf --force");
+	$self->shell("sed -i '' -e 's#/lib/cpp#cpp#g' configure");
+
 	$self->shell({fatal => 0}, "ranlib " . $self->install_prefix() . "/lib/*.a");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_tmp_prefix() . "/lib/*.a");
 
