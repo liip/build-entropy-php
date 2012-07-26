@@ -5,8 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.1.3';
-
+our $VERSION = '2.2.1';
 
 sub base_url {
     return "http://xdebug.org/files/";
@@ -31,7 +30,7 @@ sub package_filelist {
     my $self = shift @_;
     return qw(
         lib/php/extensions/no-debug-non-zts-20090626/xdebug.so
-    );  
+    );
 }
 
 sub build_preconfigure {
@@ -72,7 +71,7 @@ sub install {
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_children = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_data = 2048' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_depth = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    
+
     $self->shell("sudo mv /tmp/50-extension-" . $self->shortname() . ".ini " .$self->install_prefix() . "/php.d/")
 }
 
