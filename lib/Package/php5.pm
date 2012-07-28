@@ -158,6 +158,7 @@ sub install {
  	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules);
 
  	$self->shell("cp libs/libphp5.so $dst");
+ 	$self->shell({fatal => 0}, "mv $dst/bin/php.dSYM $dst/bin/php");
  	$self->shell("rm $dst/lib/php/extensions/*/*.a");
 
 
@@ -206,8 +207,7 @@ sub create_dso_ini_files {
 
 sub patchfiles {
 	my $self = shift @_;
-	return qw();
-	#	return qw(php-entropy.patch);
+	return qw(php-entropy.patch);
 	#return qw(php-entropy.patch php-entropy-imap.patch);
 }
 
@@ -234,7 +234,8 @@ sub cc {
 	# - the -L forces our custom iconv before the apple-supplied one
 	# - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
 	#   i.e. ours and not the system-supplied libxml
-	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
+	return "-DENTROPY_CH_RELEASE=" . $self->config()->release();
+#	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
 }
 
 1;
