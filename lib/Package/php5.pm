@@ -234,7 +234,7 @@ sub cc {
 	# - the -L forces our custom iconv before the apple-supplied one
 	# - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
 	#   i.e. ours and not the system-supplied libxml
-	return "-DENTROPY_CH_RELEASE=" . $self->config()->release();
+	return $self->SUPER::cc(@_) . " -DENTROPY_CH_RELEASE=" . $self->config()->release();
 #	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
 }
 
