@@ -8,7 +8,7 @@ use base qw(Package);
 our $VERSION = '0.38';
 
 sub base_url {
-	return "http://download.tangent.org/";
+	return "http://download.tangent.org/older-releases";
 }
 
 sub packagename {
@@ -48,12 +48,12 @@ sub install {
 }
 
 # sub php_extension_configure_flags {
-# 
+#
 #   my $self = shift @_;
 #   my (%args) = @_;
-# 
+#
 #   return "--with-jpeg-dir=" . $self->config()->prefix();
-# 
+#
 # }
 
 
