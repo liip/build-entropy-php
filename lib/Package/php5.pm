@@ -212,8 +212,8 @@ sub create_dso_ini_files {
 
 sub patchfiles {
 	my $self = shift @_;
-	return qw();
-	#	return qw(php-entropy.patch);
+	#return qw();
+	return qw(php-entropy.patch);
 	#return qw(php-entropy.patch php-entropy-imap.patch);
 }
 
