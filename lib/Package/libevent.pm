@@ -1,44 +1,41 @@
-package Package::libmemcached;
+package Package::libevent;
 
 use strict;
 use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.0.10';
+our $VERSION = '2.0.19-stable';
 
-sub dependency_names {
-        return qw(libevent);
-}
 sub base_url {
-	return "http://download.tangent.org/";
+	return "https://github.com/downloads/libevent/libevent";
 }
 
 sub packagename {
-	return "libmemcached-$VERSION";
+	return "libevent-$VERSION";
 }
 
 sub filename {
-	return "libmemcached-$VERSION.tar.gz";
+	return "libevent-$VERSION.tar.gz";
 }
 
 #http://download.tangent.org/libmemcached-0.34.tar.gz
 
 sub is_built {
 	my $self = shift @_;
-	return -e $self->packagesrcdir() . "/libmemcached.4.dylib";
+	return -e $self->packagesrcdir() . "/libevent.4.dylib";
 }
 
 sub subpath_for_check {
 	my $self = shift @_;
-	return "lib/libmemcached.4.dylib";
+	return "lib/levent.4.dylib";
 }
 
 sub configure_flags {
 	my $self = shift @_;
 	# check if we do a debug build:
 	my $debugflag = $self->config()->debug() ? ' --with-debug' : '';
-	return $self->SUPER::configure_flags(@_) . " --disable-dependency-tracking $debugflag";
+	return $self->SUPER::configure_flags(@_);
 }
 
 sub install {
