@@ -15,6 +15,7 @@ use Package::libmemcached;
 use Package::intl;
 use Package::memcached;
 use Package::memcache;
+use Package::libevent;
 use Package::xhprof;
 use Package::twig;
 use Package::APC;
