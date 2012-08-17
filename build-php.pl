@@ -12,6 +12,7 @@ use Package::php5;
 use Package::xdebug;
 use Package::uploadprogress;
 use Package::libmemcached;
+use Package::libevent;
 use Package::intl;
 use Package::memcached;
 use Package::memcache;
@@ -52,7 +53,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-version              => '5.4.5',
+version              => '5.4.6',
 #	version              => '5.4-latest',
 	release              => 1,
 	debug                => 1,
