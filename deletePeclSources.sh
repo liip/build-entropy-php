@@ -1,4 +1,4 @@
-for i in `find src -name config.nice -maxdepth 2` 
+for i in `find src -name config.nice -maxdepth 4` 
 do
 echo `dirname $i`
 rm -rf `dirname $i`
