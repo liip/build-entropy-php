@@ -23,12 +23,12 @@ sub filename {
 
 sub is_built {
 	my $self = shift @_;
-	return -e $self->packagesrcdir() . "/libevent.4.dylib";
+	return -e $self->packagesrcdir() . "/libevent.dylib";
 }
 
 sub subpath_for_check {
 	my $self = shift @_;
-	return "lib/levent.4.dylib";
+	return "lib/libevent.dylib";
 }
 
 sub configure_flags {
