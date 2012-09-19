@@ -13,7 +13,7 @@ our $VERSION = '1.11';
 
 
 sub base_url {
-	return "ftp://sunsite.cnlab-switch.ch/mirror/gnu/libiconv";
+	return "http://ftp.gnu.org/pub/gnu/libiconv";
 }
 
 
