@@ -21,13 +21,13 @@ sub filename {
 }
 
 sub subpath_for_check {
-    return "lib/php/extensions/no-debug-non-zts-20100525/xdebug.so";
+    return "lib/php/extensions/no-debug-non-zts-20121113/xdebug.so";
 }
 
 sub package_filelist {
     my $self = shift @_;
     return qw(
-        lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
+        lib/php/extensions/no-debug-non-zts-20121113/xdebug.so
     );  
 }
 
@@ -53,7 +53,7 @@ sub install {
 
     $self->build();
 
-    my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20100525/';
+    my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20121113/';
 
     $self->shell("sudo cp modules/xdebug.so $dst");
     $self->shell({silent => 0}, "echo 'zend_extension=" . $dst . $self->shortname() . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
