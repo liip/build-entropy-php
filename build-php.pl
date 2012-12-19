@@ -53,7 +53,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-version              => '5.5.0alpha1',
+version              => '5.5.0alpha2',
 #	version              => '5.4-latest',
 	release              => 1,
 	debug                => 1,
@@ -77,14 +77,14 @@ $memcached->install();
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
 
-my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
-$xhprof->install();
+#my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
+#$xhprof->install();
 
 my $twig = Package::twig->new(config => $config, variant => 'apache2');
 $twig->install();
 
-my $APC = Package::APC->new(config => $config, variant => 'apache2');
-$APC->install();
+#my $APC = Package::APC->new(config => $config, variant => 'apache2');
+#$APC->install();
 
 my $solr = Package::solr->new(config => $config, variant => 'apache2');
 $solr->install();
