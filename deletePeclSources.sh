@@ -18,3 +18,6 @@ rm -rf $i
 done
 
 rm ~/.pearrc 
+
+rm /usr/local/php5/libphp5.so
+rm -rf /usr/local/php5/lib/php
