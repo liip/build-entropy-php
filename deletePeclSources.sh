@@ -1,4 +1,4 @@
-for i in `find src -name config.nice -maxdepth 4` 
+for i in `find src -name config.nice -maxdepth 4`
 do
 echo `dirname $i`
 rm -rf `dirname $i`
@@ -16,3 +16,9 @@ do
 echo  $i
 rm -rf $i
 done
+
+rm ~/.pearrc
+
+rm /usr/local/php5/libphp5.so
+rm -rf /usr/local/php5/lib/php
+
