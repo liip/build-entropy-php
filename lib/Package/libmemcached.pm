@@ -11,7 +11,9 @@ sub dependency_names {
         return qw(libevent);
 }
 sub base_url {
-	return "http://download.tangent.org/";
+#	return "http://download.tangent.org/";
+return "https://launchpad.net/libmemcached/1.0/$VERSION/+download/";
+
 }
 
 sub packagename {
@@ -22,7 +24,9 @@ sub filename {
 	return "libmemcached-$VERSION.tar.gz";
 }
 
+
 #http://download.tangent.org/libmemcached-0.34.tar.gz
+#https://launchpad.net/libmemcached/1.0/0.38/+download/libmemcached-0.38.tar.gz
 
 sub is_built {
 	my $self = shift @_;
