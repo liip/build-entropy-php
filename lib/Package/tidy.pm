@@ -6,10 +6,10 @@ use warnings;
 use base qw(Package);
 
 #our $VERSION = '';
-our $VERSION = '20110310';
+our $VERSION = '20090325';
 
 sub base_url {
-	return "http://php-osx.liip.ch/install/tidy";
+ 	return "http://php-osx.liip.ch/install/tidy";
 }
 
 sub packagename {
@@ -18,7 +18,7 @@ sub packagename {
 
 sub filename {
 	my ($self) = shift;
-	return $self->packagename() . "-" . $VERSION . ".tar.bz2";
+	return $self->packagename() . "-" . $VERSION . ".tar.gz";
 }
 
 
