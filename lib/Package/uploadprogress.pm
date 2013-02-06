@@ -14,4 +14,10 @@ sub init {
 	$self->{VERSION} = $VERSION;
 }
 
+
+sub extension_ini{
+        my ($self, $dst) = @_;
+        $self->shell({silent => 0}, "echo ';extension=" . $dst . lc($self->shortname()) . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
+}
+
 return 1;
