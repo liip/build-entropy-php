@@ -22,7 +22,7 @@ use Package::APC;
 use Package::solr;
 use Package::oauth;
 use Package::xslcache;
-# use Package::yaml;
+#use Package::yaml;
 use Package::mongo;
 use Package::igbinary;
 use Package::phpunit;

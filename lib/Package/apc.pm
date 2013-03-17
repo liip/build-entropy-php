@@ -14,6 +14,30 @@ sub init {
     $self->{VERSION} = $VERSION;
 }
 
+## just for SVN, remove if you want to download official releases */
+
+#sub svn_url {
+#    return "https://svn.php.net/repository/pecl/apc/trunk";
+#}
+
+#sub download {
+#    my $self = shift @_;
+#    $_->download() foreach $self->dependencies();
+#    return if ($self->is_downloaded());
+#    $self->cd_srcdir();
+#    my $url = $self->svn_url();
+#    $self->shell("/usr/bin/svn co $url " . $self->packagename());
+#}
+
+
+#sub extract {
+#}
+
+#sub patch {
+#}
+
+## end SVN*/
+
 sub packagesrcdir {
     my $self = shift @_;
     return $self->config()->srcdir() . "/" . $self->packagename();
