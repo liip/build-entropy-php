@@ -20,7 +20,7 @@ sub base_url {
 		return "http://snaps.php.net";
 	} else {
 		return "http://downloads.php.net/dsp";
-		#return "http://ch.php.net/distributions";
+		#return "http://ch1.php.net/distributions";
 	}
 }
 
