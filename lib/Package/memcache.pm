@@ -20,4 +20,15 @@ sub patchfiles {
 	return qw(memcache.patch);
 }
 
+#from http://serverfault.com/questions/386392/troubles-with-memcache-so
+
+
+sub compiler_archflags {
+  my $self = shift @_;
+  return $self->SUPER::compiler_archflags(@_) . ' -fgnu89-inline' ;
+}
+
+
 return 1;
+
+
