@@ -38,7 +38,7 @@ sub filename {
 
 sub packagesrcdir {
 	my $self = shift @_;
-	return $self->config()->srcdir() . "/" . $self->packagename(); 
+	return $self->config()->srcdir() . "/" . $self->packagename();
 }
 
 sub url {
@@ -77,7 +77,7 @@ sub install {
 	return undef if ($self->is_installed());
 	$self->build();
 	$self->log("installing");
-	
+
 	return 1;
 }
 
@@ -214,7 +214,7 @@ sub to_string {
 
 sub extras_dir {
 	my $self = shift @_;
-	return $self->config()->basedir() . '/extras/' . $self->shortname();	
+	return $self->config()->basedir() . '/extras/' . $self->shortname();
 }
 
 sub extras_path {
@@ -266,7 +266,7 @@ sub install_prefix {
 sub install_tmp_prefix {
 	my $self = shift @_;
 	return $self->config()->basedir() . "/install-tmp";
-	
+
 }
 
 sub php_build_pre {

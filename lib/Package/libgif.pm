@@ -9,7 +9,7 @@ our $VERSION = '4.1.6';
 
 sub base_url {
     my $self = shift @_;
-    return "http://downloads.sourceforge.net/project/giflib/giflib%204.x/" . $self->packagename() . "/";
+	return "http://downloads.sourceforge.net/project/giflib/giflib-4.x/" . $self->packagename() ;
 }
 
 sub packagename {
@@ -35,7 +35,7 @@ sub subpath_for_check {
 sub configure_flags {
 	my $self = shift @_;
 	my $prefix = $self->config()->prefix();
-	
+
 	return $self->SUPER::configure_flags(@_) . " --disable-dependency-tracking";
 }
 

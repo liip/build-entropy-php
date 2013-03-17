@@ -40,7 +40,7 @@ sub init {
 
 sub packagesrcdir {
     my $self = shift @_;
-    return $self->config()->srcdir() . "/" . $self->packagename(); 
+    return $self->config()->srcdir() . "/" . $self->packagename();
 }
 
 sub extension_ini{

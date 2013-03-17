@@ -18,7 +18,7 @@ sub base_url {
 	my $v = $self->config()->version();
 	if ($v ~~ /latest/) {
 		return "http://snaps.php.net";
-	} else { 
+	} else {
 		#return "http://downloads.php.net/stas";
 		return "http://ch1.php.net/distributions";
 	}
@@ -44,7 +44,7 @@ sub packagesrcdir {
 	my $srcdir = `tar -tzf  $dlpath  | head -1`;
 	$srcdir =~ s/^\s+//;
 	$srcdir =~ s/\s+$//;
-	return $self->config()->srcdir() . "/" .$srcdir; 
+	return $self->config()->srcdir() . "/" .$srcdir;
 }
 
 sub dependency_names {
@@ -108,10 +108,10 @@ sub configure_flags {
 	);
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
-	
+
 	my $apxs_option = $self->config()->variants()->{$self->{variant}}->{apxs_option};
 	return $self->SUPER::configure_flags() . " $apxs_option @extension_flags";
-	
+
 }
 
 sub build_postconfigure {
@@ -166,7 +166,7 @@ sub install {
 
 
 #	$self->SUPER::install(@_);
-	
+
 	my $extrasdir = $self->extras_dir();
 	my $prefix = $self->config()->prefix();
 
@@ -202,7 +202,7 @@ sub create_dso_ini_files {
 	my $extdir = $self->config()->extdir();
 	$self->shell({silent => 0}, "echo 'extension=$_.so' > $prefix/php.d/50-extension-$_.ini") foreach (@dso_names);
 	$self->shell({silent => 0}, qq!echo 'extension_dir=$prefix/$extdir' > $prefix/php.d/10-extension_dir.ini!);
-	
+
 	# adding some default values
 	# TODO: fixme
 	$self->shell({silent => 0}, "echo 'mssql.charset = UTF-8' >> $prefix/php.d/50-extension-mssql.ini");
@@ -225,15 +225,15 @@ sub cflags {
 sub ldflags {
   my $self = shift @_;
   my $prefix = $self->config()->prefix();
-  
-  #-bind_at_load 
+
+  #-bind_at_load
   return "-L$prefix/lib " . $self->compiler_archflags();
 }
 
 sub cc {
 	my $self = shift @_;
 	my $prefix = $self->config()->prefix();
-	
+
 	# - the -L forces our custom iconv before the apple-supplied one
 	# - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
 	#   i.e. ours and not the system-supplied libxml
