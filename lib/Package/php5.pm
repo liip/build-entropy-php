@@ -20,7 +20,7 @@ sub base_url {
 		return "http://snaps.php.net";
 	} else {
 		#return "http://downloads.php.net/stas";
-		return "http://ch.php.net/distributions";
+		return "http://ch1.php.net/distributions";
 	}
 }
 
@@ -81,7 +81,7 @@ sub configure_flags {
         # '--with-gmp', less important than iconv, so leaving it for later
 		'--enable-exif',
 		'--with-xmlrpc',
-	    '--enable-exif',
+		'--enable-exif',
 		'--enable-soap',
 		'--enable-sqlite-utf8',
 		'--enable-wddx',

@@ -71,7 +71,7 @@ sub install {
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_children = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_data = 2048' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_depth = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-
+    
     $self->shell("sudo mv /tmp/50-extension-" . $self->shortname() . ".ini " .$self->install_prefix() . "/php.d/")
 }
 
