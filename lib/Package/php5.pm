@@ -48,7 +48,9 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
+	 return qw(      icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
+	#before 10.8
+	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
 
 sub subpath_for_check {
@@ -98,11 +100,12 @@ sub configure_flags {
 		'--enable-calendar',
 		'--with-iodbc',
 		'--with-mhash',
+		'--enable-fpm',
 		'--with-mysql=mysqlnd',
 		'--with-mysqli=mysqlnd',
 		'--with-pdo-mysql=mysqlnd',
 		'--enable-pcntl',
-		'--enable-zend-multibyte'
+		'--enable-dtrace'
 	);
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
@@ -110,6 +113,11 @@ sub configure_flags {
 	my $apxs_option = $self->config()->variants()->{$self->{variant}}->{apxs_option};
 	return $self->SUPER::configure_flags() . " $apxs_option @extension_flags";
 
+}
+
+sub build_postconfigure {
+	my $self = shift @_;
+	#$self->shell("sed -i '' -e 's#\$echo#\$ECHO#g' libtool");
 }
 
 sub build_preconfigure {
@@ -126,8 +134,6 @@ sub build_preconfigure {
 	$self->cd_packagesrcdir();
     #$self->shell("aclocal");
     #$self->shell("./buildconf --force");
-	$self->shell("sed -i '' -e 's#/lib/cpp#cpp#g' configure");
-
 	$self->shell({fatal => 0}, "ranlib " . $self->install_prefix() . "/lib/*.a");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_tmp_prefix() . "/lib/*.a");
 
@@ -154,10 +160,9 @@ sub install {
 	die "Unable to find or create installation dir '$dst'" unless (-d $dst);
 
 	my $install_override = $self->make_install_override_list(prefix => $dst);
- 	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules);
+ 	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules fpm);
 
  	$self->shell("cp libs/libphp5.so $dst");
- 	$self->shell({fatal => 0}, "mv $dst/bin/php.dSYM $dst/bin/php");
  	$self->shell("rm $dst/lib/php/extensions/*/*.a");
 
 
@@ -233,8 +238,8 @@ sub cc {
 	# - the -L forces our custom iconv before the apple-supplied one
 	# - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
 	#   i.e. ours and not the system-supplied libxml
-	return $self->SUPER::cc(@_) . " -DENTROPY_CH_RELEASE=" . $self->config()->release();
-#	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
+	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
 }
+
 
 1;
