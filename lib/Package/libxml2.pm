@@ -9,7 +9,7 @@ our $VERSION = '2.7.8';
 
 
 sub dependency_names {
-	return qw();
+	return qw(iconv);
 }
 
 

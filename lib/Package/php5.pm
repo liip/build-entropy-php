@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
+	return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
 
 sub subpath_for_check {
@@ -110,6 +110,9 @@ sub configure_flags {
 	my $apxs_option = $self->config()->variants()->{$self->{variant}}->{apxs_option};
 	return $self->SUPER::configure_flags() . " $apxs_option @extension_flags";
 
+sub build_postconfigure {
+	my $self = shift @_;
+	#$self->shell("sed -i '' -e 's#\$echo#\$ECHO#g' libtool");
 }
 
 sub build_preconfigure {
@@ -125,9 +128,7 @@ sub build_preconfigure {
 
 	$self->cd_packagesrcdir();
     #$self->shell("aclocal");
-    #$self->shell("./buildconf --force");
-	$self->shell("sed -i '' -e 's#/lib/cpp#cpp#g' configure");
-
+    $self->shell("./buildconf --force");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_prefix() . "/lib/*.a");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_tmp_prefix() . "/lib/*.a");
 
@@ -157,7 +158,6 @@ sub install {
  	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules);
 
  	$self->shell("cp libs/libphp5.so $dst");
- 	$self->shell({fatal => 0}, "mv $dst/bin/php.dSYM $dst/bin/php");
  	$self->shell("rm $dst/lib/php/extensions/*/*.a");
 
 
@@ -206,8 +206,8 @@ sub create_dso_ini_files {
 
 sub patchfiles {
 	my $self = shift @_;
-	return qw(php-entropy.patch);
-	#return qw(php-entropy.patch php-entropy-imap.patch);
+#	return qw(php-entropy.patch);
+	return qw(php-entropy.patch php-entropy-imap.patch);
 }
 
 sub cflags {
