@@ -46,9 +46,11 @@ sub packagesrcdir {
 sub extension_ini{
     my ($self, $dst) = @_;
     $self->shell({silent => 0}, "echo ';extension=" . $dst . lc($self->shortname()) . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
-    # some default value
+    # some default values
     $self->shell({silent => 0}, "echo ';[APC]' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    $self->shell({silent => 0}, "echo ';apc.enabled = off' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo ';apc.enabled = 1' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo ';apc.shm_segments = 1' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo ';apc.shm_size = 128M' >> /tmp/50-extension-" . $self->shortname() . ".ini");
 }
 
 return 1;
