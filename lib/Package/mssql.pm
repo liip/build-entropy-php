@@ -31,7 +31,7 @@ sub configure_flags {
 
 sub build_postconfigure {
 	my $self = shift @_;
-	$self->shell('cp /usr/local/bin/glibtool libtool');
+	$self->shell('cp /usr/bin/glibtool libtool');
 	$self->shell('sed -i "" "#../replacements/libreplacements.la#d" src/server/Makefile.in src/ctlib/Makefile.in src/odbc/Makefile.in src/dblib/Makefile.in src/apps/Makefile.in');
 	$self->shell('sed -i "" "#../../replacements/libreplacements.la#d" src/apps/fisql/Makefile.in src/dblib/unittests/Makefile.in src/tds/unittests/Makefile.in');
 }
@@ -62,7 +62,7 @@ sub build_configure {
 	my $cc = $self->cc();
 
 	my $prefix = $self->config()->prefix();
-	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.8 CFLAGS="$cflags" LDFLAGS='$ldflags' CXXFLAGS='$cxxflags' CC='$cc $archflags' CPP='cpp' ./configure ) . $self->configure_flags());
+	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.6 CFLAGS="$cflags" LDFLAGS='$ldflags' CXXFLAGS='$cxxflags' CC='$cc $archflags' CPP='cpp' ./configure ) . $self->configure_flags());
 }
 
 

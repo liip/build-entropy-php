@@ -182,7 +182,7 @@ sub make_flags {
 
 sub make_command {
 	my $self = shift @_;
-	return "MACOSX_DEPLOYMENT_TARGET=10.8 make " . $self->make_flags();
+	return "MACOSX_DEPLOYMENT_TARGET=10.6 make " . $self->make_flags();
 }
 
 sub make_install_override_list {
@@ -227,7 +227,7 @@ sub cflags {
 	my $self = shift @_;
 	my $debugflag = $self->config()->debug() ? '-g -O' : '-Os';
 	my $prefix = $self->config()->prefix();
-	return "$debugflag -mmacosx-version-min=10.8 -I$prefix/include " . $self->compiler_archflags();
+	return "$debugflag -mmacosx-version-min=10.6 -I$prefix/include " . $self->compiler_archflags();
 }
 
 sub ldflags {
@@ -241,9 +241,9 @@ sub cc {
 	# this is a hack to override the shipping iconv.h header file with the one
 	# from the darwin source. Fix taken from:
 	# http://gorn.ch/archive/2007/11/01/leopard-native-apache-with-custom-64bit-php.html
-	#my $iconv_include_override_dir = $self->config()->basedir() . "/extras/iconv/leopard-iconv-include-override";
-	#return "cc -I$iconv_include_override_dir";
-	return "cc";
+	my $iconv_include_override_dir = $self->config()->basedir() . "/extras/iconv/leopard-iconv-include-override";
+	return "cc -I$iconv_include_override_dir";
+	# return "cc";
 }
 
 sub compiler_archflags {
