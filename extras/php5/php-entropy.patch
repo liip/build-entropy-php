@@ -1,19 +1,13 @@
-diff -ru php-5.2.4/ext/standard/info.c php-5.2.4.entropy/ext/standard/info.c
---- php-5.2.4/ext/standard/info.c	2007-07-21 03:24:26.000000000 +0200
-+++ php-5.2.4.entropy/ext/standard/info.c	2007-11-02 00:39:21.000000000 +0100
-@@ -454,6 +454,15 @@
+--- php-5.3.23.ori/ext/standard/info.c	2013-03-18 07:39:47.000000000 +0100
++++ php-5.3.23/ext/standard/info.c	2013-03-18 07:38:58.000000000 +0100
+@@ -691,6 +691,10 @@
  
  		if (!sapi_module.phpinfo_as_text) {
  			php_printf("<h1 class=\"p\">PHP Version %s</h1>\n", PHP_VERSION);
-+#ifdef __i386__
-+#define ENTROPY_CH_THIS_ARCH "i386"
-+#endif
-+
 +#ifdef __x86_64__
 +#define ENTROPY_CH_THIS_ARCH "x86_64"
 +#endif
-+			php_printf("<h2 class=\"p\">by <a style=\"text-decoration: none; background-color:inherit;\" href='http://www.local.ch'>www.local.ch</a> and <a style=\"text-decoration: none; background-color:inherit;\" href='http://www.liip.ch'>Liip</a> , Release %d </h2>\n", ENTROPY_CH_RELEASE);
-+			php_printf("<p>Universal Binary %s - this machine runs: %s</p>\n", ENTROPY_CH_ARCHS, ENTROPY_CH_THIS_ARCH);
++			php_printf("<h2 class=\"p\"><a href=\"http://php-osx.liip.ch/\">php-osx.liip.ch</a> by <a style=\"text-decoration: none; background-color:inherit;\" href='http://www.liip.ch'>Liip</a> (originally developed by <a style=\"text-decoration: none; background-color:inherit;\" href='http://www.local.ch'>www.local.ch</a>)</h2>\n");
  		} else {
  			php_info_print_table_row(2, "PHP Version", PHP_VERSION);
- 		}	
+ 		}
