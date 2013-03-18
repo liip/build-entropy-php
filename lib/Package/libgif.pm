@@ -9,7 +9,7 @@ our $VERSION = '4.1.6';
 
 sub base_url {
     my $self = shift @_;
-    return "http://downloads.sourceforge.net/project/giflib/giflib%204.x/" . $self->packagename() . "/";
+	return "http://downloads.sourceforge.net/project/giflib/giflib-4.x/" . $self->packagename() ;
 }
 
 sub packagename {
