@@ -31,7 +31,7 @@ sub configure_flags {
 
 sub build_postconfigure {
 	my $self = shift @_;
-	$self->shell('cp /usr/local/bin/glibtool libtool');
+	$self->shell('cp /usr/bin/glibtool libtool');
 	$self->shell('sed -i "" "#../replacements/libreplacements.la#d" src/server/Makefile.in src/ctlib/Makefile.in src/odbc/Makefile.in src/dblib/Makefile.in src/apps/Makefile.in');
 	$self->shell('sed -i "" "#../../replacements/libreplacements.la#d" src/apps/fisql/Makefile.in src/dblib/unittests/Makefile.in src/tds/unittests/Makefile.in');
 }
