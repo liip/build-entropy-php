@@ -19,8 +19,8 @@ sub base_url {
 	if ($v ~~ /latest/) {
 		return "http://snaps.php.net";
 	} else {
-		#return "http://downloads.php.net/stas";
-		return "http://ch1.php.net/distributions";
+		return "http://downloads.php.net/dsp";
+		#return "http://ch1.php.net/distributions";
 	}
 }
 
@@ -183,7 +183,7 @@ sub install {
 		$self->shell($self->make_command(), "install-pear");
 #		$self->shell({silent => 0}, qq!sed -e 's#"[^"]*$prefix\\([^"]*\\)#"$prefix\\1"#g' < $prefix/etc/pear.conf > $prefix/etc/pear.conf.default!);
 #		$self->shell({silent => 0}, "rm $prefix/etc/pear.conf");
-		$self->shell({silent => 0}, "mv $prefix/etc/pear.conf $prefix/etc/pear.conf.default");
+#		$self->shell({silent => 0}, "mv $prefix/etc/pear.conf $prefix/etc/pear.conf.default");
 	#}
 	$self->shell({silent => 0}, "test -d $prefix/php.d || mkdir $prefix/php.d");
 	$self->shell({silent => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
