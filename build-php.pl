@@ -53,7 +53,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-version              => '5.4.13',
+version              => '5.5.0alpha6',
 #	version              => '5.4-latest',
 	release              => 1,
 	debug                => 1,
@@ -62,8 +62,8 @@ my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
-my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-$xdebug->install();
+#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+#$xdebug->install();
 
 my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
 $upload->install();
@@ -77,14 +77,14 @@ $memcached->install();
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
 
-my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
-$xhprof->install();
+#my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
+#$xhprof->install();
 
 my $twig = Package::twig->new(config => $config, variant => 'apache2');
 $twig->install();
 
-my $APC = Package::APC->new(config => $config, variant => 'apache2');
-$APC->install();
+#my $APC = Package::APC->new(config => $config, variant => 'apache2');
+#$APC->install();
 
 my $solr = Package::solr->new(config => $config, variant => 'apache2');
 $solr->install();
