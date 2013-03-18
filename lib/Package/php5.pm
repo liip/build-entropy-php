@@ -109,6 +109,7 @@ sub configure_flags {
 
 	my $apxs_option = $self->config()->variants()->{$self->{variant}}->{apxs_option};
 	return $self->SUPER::configure_flags() . " $apxs_option @extension_flags";
+}
 
 sub build_postconfigure {
 	my $self = shift @_;
