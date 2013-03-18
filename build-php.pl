@@ -53,7 +53,8 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.3.23',
+version              => '5.4.13',
+#	version              => '5.4-latest',
 	release              => 1,
 	debug                => 1,
 );
@@ -91,8 +92,8 @@ $solr->install();
 my $oauth = Package::oauth->new(config => $config, variant => 'apache2');
 $oauth->install();
 
-my $xslcache = Package::xslcache->new(config => $config, variant => 'apache2');
-$xslcache->install();
+#my $xslcache = Package::xslcache->new(config => $config, variant => 'apache2');
+#$xslcache->install();
 
 # Needs libYAML to be integrated as well, left for later
 # my $yaml = Package::yaml->new(config => $config, variant => 'apache2');
