@@ -11,9 +11,7 @@ sub dependency_names {
         return qw(libevent);
 }
 sub base_url {
-#	return "http://download.tangent.org/";
-return "https://launchpad.net/libmemcached/1.0/$VERSION/+download/";
-
+	return "https://launchpad.net/libmemcached/1.0/$VERSION/+download/";
 }
 
 sub packagename {
@@ -30,12 +28,12 @@ sub filename {
 
 sub is_built {
 	my $self = shift @_;
-	return -e $self->packagesrcdir() . "/libmemcached.dylib";
+	return -e $self->packagesrcdir() . "/libmemcached.4.dylib";
 }
 
 sub subpath_for_check {
 	my $self = shift @_;
-	return "lib/libmemcached.dylib";
+	return "lib/libmemcached.4.dylib";
 }
 
 sub configure_flags {
