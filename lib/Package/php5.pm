@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
+	return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
 }
 
 sub subpath_for_check {
