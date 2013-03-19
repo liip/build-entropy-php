@@ -25,6 +25,7 @@ use Package::xslcache;
 #use Package::yaml;
 use Package::mongo;
 use Package::igbinary;
+use Package::gmp;
 use Package::phpunit;
 
 my $basedir = qx(pwd);
@@ -103,6 +104,9 @@ $mongo->install();
 
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
+
+my $gmp = Package::gmp->new(config => $config, variant => 'apache2');
+$gmp->install();
 
 my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 $phpunit->install();
