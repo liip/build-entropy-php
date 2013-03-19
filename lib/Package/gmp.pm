@@ -31,12 +31,6 @@ sub filename {
 }
 
 
-
-sub is_built {
-	my $self = shift @_;
-	return -e $self->packagesrcdir() . "/libgmp.dylib";
-}
-
 sub subpath_for_check {
 	my $self = shift @_;
 	return "lib/libgmp.dylib";
@@ -61,6 +55,26 @@ sub install {
 sub extract {
 	my $self = shift @_;
 	$self->shell('tar -xjf', $self->download_path());
+}
+
+
+sub php_extension_configure_flags {
+	my $self = shift @_;
+	my (%args) = @_;
+	return "--with-gmp=shared," . $self->config()->prefix();
+}
+
+
+
+sub php_dso_extension_names {
+	my $self = shift @_;
+	return qw(gmp);
+}
+
+
+sub package_filelist {
+	my $self = shift @_;
+	return $self->php_dso_extension_paths(), qw(php.d/50-extension-gmp.ini lib/libgmp*.dylib);
 }
 
 1;

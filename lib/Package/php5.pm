@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
+	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp);
 }
 
 sub subpath_for_check {
@@ -77,7 +77,6 @@ sub configure_flags {
 		'--with-zlib-dir=/usr',
 		'--with-gd',
 		'--with-ldap',
-	         '--with-gmp=/usr/local/php5', 
 		'--enable-exif',
 		'--with-xmlrpc',
 		'--enable-exif',
