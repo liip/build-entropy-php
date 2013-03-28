@@ -14,10 +14,4 @@ sub init {
 	$self->{VERSION} = $VERSION;
 }
 
-sub patchfiles {
-	my $self = shift @_;
-
-	return qw(memcache.patch);
-}
-
 return 1;
