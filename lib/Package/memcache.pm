@@ -14,12 +14,6 @@ sub init {
 	$self->{VERSION} = $VERSION;
 }
 
-sub patchfiles {
-	my $self = shift @_;
-
-	return qw(memcache.patch);
-}
-
 #from http://serverfault.com/questions/386392/troubles-with-memcache-so
 
 
