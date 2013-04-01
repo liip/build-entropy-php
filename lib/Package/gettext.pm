@@ -11,7 +11,7 @@ our $VERSION = '0.18.1.1';
 
 
 sub dependency_names {
-	return qw();
+	return qw(iconv);
 }
 
 
@@ -88,11 +88,6 @@ sub package_filelist {
 	);
 }
 
-sub patchfiles {
-	my $self = shift @_;
-
-	return qw(gettext.patch);
-}
 
 
 
