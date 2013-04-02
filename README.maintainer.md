@@ -79,4 +79,20 @@ and on 10.6, we merge from the same PHP version branch from the mountainlion bra
 
 This way, we can keep the logs somehow clean and can make sure, everything is merged correctly and everywhere.
 
+## Community feedback and communication
 
+### Twitter
+
+* Tweet as @php_osx, if you do a new release
+* Follow on twitter, if someone mentions @php_osx and asks for something
+
+### Github
+
+* Watch https://github.com/liip/php-osx/issues for new issues 
+
+### Stackoverflow
+
+* Check http://stackoverflow.com/questions/tagged/php+osx from time to time, if there are any questions there.
+
+
+ 
