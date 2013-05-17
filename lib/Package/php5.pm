@@ -159,7 +159,7 @@ sub install {
 	die "Unable to find or create installation dir '$dst'" unless (-d $dst);
 
 	my $install_override = $self->make_install_override_list(prefix => $dst);
- 	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules fpm);
+ 	$self->shell($self->make_command() . " $install_override install-$_") foreach qw(cli build headers programs modules fpm cgi);
 
  	$self->shell("cp libs/libphp5.so $dst");
  	$self->shell("rm $dst/lib/php/extensions/*/*.a");
