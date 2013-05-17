@@ -53,7 +53,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.3.24',
+	version              => '5.3.25',
 	release              => 1,
 	debug                => 1,
 );
@@ -61,7 +61,7 @@ my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
-my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+	my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
 $xdebug->install();
 
 my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
