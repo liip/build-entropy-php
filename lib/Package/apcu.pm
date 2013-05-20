@@ -21,10 +21,10 @@ sub packagesrcdir {
 
 sub extension_ini{
     my ($self, $dst) = @_;
-    $self->shell({silent => 0}, "echo ';extension=" . $dst . lc($self->shortname()) . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo 'extension=" . $dst . lc($self->shortname()) . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
     # some default value
-    $self->shell({silent => 0}, "echo ';[APCu]' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    $self->shell({silent => 0}, "echo ';apc.enabled = on' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo '[APCu]' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo 'apc.enabled = on' >> /tmp/50-extension-" . $self->shortname() . ".ini");
 }
 
 return 1;
