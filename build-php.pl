@@ -61,8 +61,8 @@ my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
-#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-#$xdebug->install();
+my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+$xdebug->install();
 
 my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
 $upload->install();
