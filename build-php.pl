@@ -76,8 +76,8 @@ $memcached->install();
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
 
-#my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
-#$xhprof->install();
+my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
+$xhprof->install();
 
 my $twig = Package::twig->new(config => $config, variant => 'apache2');
 $twig->install();
