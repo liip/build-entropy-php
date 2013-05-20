@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '0.9.2.1';
+our $VERSION = '0.9.3';
 
 sub init {
 	my $self = shift;
@@ -19,9 +19,12 @@ sub packagesrcdir {
 	return $self->config()->srcdir() . "/" . $self->packagename() . "/extension"; 
 }
 
-sub base_url {
-	my $self = shift;
-	return "http://php-osx.liip.ch/vendorpkgs";
-}
+## The following code is needed, if you download from our own repo instead of pecl
+## currently the pecl repo is current enough
+
+#sub base_url {
+#	my $self = shift;
+#	return "http://php-osx.liip.ch/vendorpkgs";
+#}
 
 return 1;
