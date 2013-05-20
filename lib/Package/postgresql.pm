@@ -62,7 +62,7 @@ sub package_filelist {
 
 sub configure_flags {
 	my $self = shift @_;
-	return "--disable-depend --without-docdir --prefix=" . $self->install_prefix();
+	return "--with-openssl --disable-depend --without-docdir --prefix=" . $self->install_prefix();
 }
 
 
