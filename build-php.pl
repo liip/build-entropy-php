@@ -25,6 +25,7 @@ use Package::xslcache;
 #use Package::yaml;
 use Package::mongo;
 use Package::redis;
+use Package::apcu;
 use Package::igbinary;
 use Package::phpunit;
 
@@ -104,6 +105,9 @@ $mongo->install();
 
 my $redis = Package::redis->new(config => $config, variant => 'apache2');
 $redis->install();
+
+my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
+$apcu->install();
 
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
