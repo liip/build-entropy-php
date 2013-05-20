@@ -24,6 +24,7 @@ use Package::oauth;
 use Package::xslcache;
 #use Package::yaml;
 use Package::mongo;
+use Package::redis;
 use Package::igbinary;
 use Package::phpunit;
 
@@ -100,6 +101,9 @@ $oauth->install();
 
 my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
 $mongo->install();
+
+my $redis = Package::redis->new(config => $config, variant => 'apache2');
+$redis->install();
 
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
