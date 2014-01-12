@@ -202,6 +202,11 @@ sub create_dso_ini_files {
 	# adding some default values
 	# TODO: fixme
 	$self->shell({silent => 0}, "echo 'mssql.charset = UTF-8' >> $prefix/php.d/50-extension-mssql.ini");
+    	my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20090626/';
+	$self->shell({silent => 0}, "echo ';zend_extension=" . $dst . "opcache.so' > $prefix/php.d/20-extension-opcache.ini");
+    	# some default value
+    	$self->shell({silent => 0}, "echo '[opcache]' >>  $prefix/php.d/20-extension-opcache.ini");
+    	$self->shell({silent => 0}, "echo ';opcache.enable=0' >>  $prefix/php.d/20-extension-opcache.ini");
 }
 
 sub patchfiles {

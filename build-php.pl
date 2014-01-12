@@ -30,6 +30,7 @@ use Package::igbinary;
 use Package::phpunit;
 use Package::libssh2;
 use Package::ssh2;
+use Package::opcache;
 
 my $basedir = qx(pwd);
 chomp $basedir;
@@ -57,7 +58,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.3.26',
+	version              => '5.3.28',
 	release              => 1,
 	debug                => 1,
 );
@@ -114,14 +115,17 @@ $apcu->install();
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
 
-my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
-$phpunit->install();
-
 my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
 $libssh2->install();
 
 my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
 $ssh2->install();
+
+my $opcache = Package::opcache->new(config => $config, variant => 'apache2');
+$opcache->install();
+
+my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
+$phpunit->install();
 
 # If there is a ~/.pear directory, "make install-pear" will not work properly
 sub check_dotpear {
