@@ -205,7 +205,7 @@ sub create_dso_ini_files {
 	$self->shell({silent => 0}, "echo 'zend_extension=" . $dst . "opcache.so' > $prefix/php.d/20-extension-opcache.ini");
     	# some default value
     	$self->shell({silent => 0}, "echo '[opcache]' >>  $prefix/php.d/20-extension-opcache.ini");
-    	$self->shell({silent => 0}, "echo ';opcache.enable=1' >>  $prefix/php.d/20-extension-opcache.ini");
+    	$self->shell({silent => 0}, "echo 'opcache.enable=0' >>  $prefix/php.d/20-extension-opcache.ini");
 }
 
 sub patchfiles {
