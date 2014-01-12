@@ -114,14 +114,14 @@ $apcu->install();
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
 
-my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
-$phpunit->install();
-
 my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
 $libssh2->install();
 
 my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
 $ssh2->install();
+
+my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
+$phpunit->install();
 
 # If there is a ~/.pear directory, "make install-pear" will not work properly
 sub check_dotpear {
