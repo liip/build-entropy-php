@@ -30,6 +30,7 @@ use Package::igbinary;
 use Package::phpunit;
 use Package::libssh2;
 use Package::ssh2;
+use Package::opcache;
 
 my $basedir = qx(pwd);
 chomp $basedir;
@@ -119,6 +120,9 @@ $libssh2->install();
 
 my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
 $ssh2->install();
+
+my $opcache = Package::opcache->new(config => $config, variant => 'apache2');
+$opcache->install();
 
 my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 $phpunit->install();

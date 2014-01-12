@@ -59,6 +59,11 @@ sub install {
 
 	$self->shell(sprintf("sudo cp modules/%s.so $dst", lc($self->{PACKAGE_NAME})));
 	$self->extension_ini($dst);
+	$self->mv_ini_to_php_d();
+}
+
+sub mv_ini_to_php_d {
+	my $self = shift @_;
 	$self->shell("sudo mv /tmp/50-extension-" . lc($self->shortname()) . ".ini " .$self->install_prefix() . "/php.d/")
 }
 
