@@ -105,7 +105,8 @@ sub configure_flags {
 		'--with-pdo-mysql=mysqlnd',
 		'--enable-pcntl',
 		'--enable-dtrace',
-		'--enable-opcache'
+		'--enable-opcache',
+		'--disable-phpdbg' 
 	);
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
