@@ -19,8 +19,8 @@ sub base_url {
 	if ($v ~~ /latest/) {
 		return "http://snaps.php.net";
 	} else {
-		#return "http://downloads.php.net/dsp";
-		return "http://ch1.php.net/distributions";
+		return "http://downloads.php.net/tyrael";
+		#return "http://ch1.php.net/distributions";
 	}
 }
 
@@ -224,7 +224,7 @@ sub cflags {
 	my $self = shift @_;
 	my $supported_archs = join '/', $self->supported_archs();
 	my $prefix = $self->config()->prefix();
-	return $self->SUPER::cflags(@_) . qq( -no-cpp-precomp -DENTROPY_CH_ARCHS='\\"$supported_archs\\"' -DENTROPY_CH_RELEASE=) . $self->config()->release();
+	return $self->SUPER::cflags(@_) . qq( -no-cpp-precomp -DENTROPY_CH_ARCHS='$supported_archs' -DENTROPY_CH_RELEASE=) . $self->config()->release();
 #-I$prefix/include
 }
 
