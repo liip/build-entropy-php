@@ -57,7 +57,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.6.0alpha3',
+	version              => '5.6.0beta4',
 	release              => 1,
 	debug                => 1,
 );
@@ -108,8 +108,8 @@ $mongo->install();
 my $redis = Package::redis->new(config => $config, variant => 'apache2');
 $redis->install();
 
-my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
-$apcu->install();
+# my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
+# $apcu->install();
 
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
