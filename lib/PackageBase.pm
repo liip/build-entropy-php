@@ -182,7 +182,7 @@ sub make_flags {
 
 sub make_command {
 	my $self = shift @_;
-	return "MACOSX_DEPLOYMENT_TARGET=10.8 make " . $self->make_flags();
+	return "MACOSX_DEPLOYMENT_TARGET=10.10 make " . $self->make_flags();
 }
 
 sub make_install_override_list {
@@ -227,7 +227,7 @@ sub cflags {
 	my $self = shift @_;
 	my $debugflag = $self->config()->debug() ? '-g -O' : '-Os';
 	my $prefix = $self->config()->prefix();
-	return "$debugflag -mmacosx-version-min=10.8 -I$prefix/include " . $self->compiler_archflags();
+	return "$debugflag -mmacosx-version-min=10.10 -I$prefix/include " . $self->compiler_archflags();
 }
 
 sub ldflags {
