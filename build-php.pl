@@ -75,8 +75,8 @@ $upload->install();
 my $intl = Package::intl->new(config => $config, variant => 'apache2');
 $intl->install();
 
-my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
-$memcached->install();
+#my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
+#$memcached->install();
 
 my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
 $memcache->install();
