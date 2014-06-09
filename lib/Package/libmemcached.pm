@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.0.10';
+our $VERSION = '1.0.18';
 
 sub dependency_names {
         return qw(libevent);
@@ -41,8 +41,7 @@ sub subpath_for_check {
 sub configure_flags {
 	my $self = shift @_;
 	# check if we do a debug build:
-	my $debugflag = $self->config()->debug() ? ' --with-debug' : '';
-	return $self->SUPER::configure_flags(@_) . " --disable-dependency-tracking $debugflag";
+	return $self->SUPER::configure_flags(@_) . " --without-mysql --disable-dependency-tracking";
 }
 
 sub install {
