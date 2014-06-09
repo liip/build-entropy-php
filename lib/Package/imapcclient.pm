@@ -30,7 +30,7 @@ sub filename {
 sub make_command {
 	my $self = shift @_;
 	my $cflags = $self->cflags();
-	return qq(MACOSX_DEPLOYMENT_TARGET=10.8 EXTRACFLAGS="$cflags" make -e osx);
+	return qq(MACOSX_DEPLOYMENT_TARGET=10.10 EXTRACFLAGS="$cflags" make -e osx);
 }
 
 
