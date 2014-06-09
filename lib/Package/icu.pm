@@ -50,8 +50,8 @@ sub build_configure {
 	my $cxxflags = $self->compiler_archflags();
 	my $archflags = $self->compiler_archflags();
 	my $cc = $self->cc();
-	
-	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.8 CFLAGS="-mmacosx-version-min=10.8 -arch x86_64" LDFLAGS="-arch x86_64" CXXFLAGS="-arch x86_64" ./runConfigureICU MacOSX --with-library-bits=64 --disable-samples --enable-static ) . $self->configure_flags());
+
+	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.10 CFLAGS="-mmacosx-version-min=10.10 -arch x86_64" LDFLAGS="-arch x86_64" CXXFLAGS="-arch x86_64" ./runConfigureICU MacOSX --with-library-bits=64 --disable-samples --enable-static ) . $self->configure_flags());
 }
 
 sub make_command {

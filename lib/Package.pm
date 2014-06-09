@@ -66,7 +66,7 @@ sub build_configure {
 	my $cc = $self->cc();
 
 	my $prefix = $self->config()->prefix();
-	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.8 CFLAGS="$cflags" LDFLAGS='$ldflags' CXXFLAGS='$cxxflags' CC='$cc' ./configure ) . $self->configure_flags());
+	$self->shell(qq(MACOSX_DEPLOYMENT_TARGET=10.10 CFLAGS="$cflags" LDFLAGS='$ldflags' CXXFLAGS='$cxxflags' CC='$cc' ./configure ) . $self->configure_flags());
 }
 
 sub build_preconfigure {
