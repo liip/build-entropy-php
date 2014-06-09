@@ -67,6 +67,8 @@ First, make the adjustements in the _5_3_mountainlion_ branch, commit it and the
     git merge --log --no-ff 5_3_mountainlion
     git co 5_5_mountainlion
     git merge --log --no-ff 5_4_mountainlion
+    git co 5_6_mountainlion
+    git merge --log --no-ff 5_4_mountainlion
 
 and on 10.6, we merge from the same PHP version branch from the mountainlion branches (not from the version "below")
 
@@ -76,6 +78,18 @@ and on 10.6, we merge from the same PHP version branch from the mountainlion bra
     git merge --log --no-ff 5_4_mountainlion
     git co 5_5_snowleopard
     git merge --log --no-ff 5_5_mountainlion
+
+and the same for 10.10
+
+    git co 5_3_yosemite
+    git merge --log --no-ff 5_3_mountainlion
+    git co 5_4_yosemite
+    git merge --log --no-ff 5_4_mountainlion
+    git co 5_5_yosemite
+    git merge --log --no-ff 5_5_mountainlion
+    git co 5_6_yosemite
+    git merge --log --no-ff 5_6_mountainlion
+
 
 This way, we can keep the logs somehow clean and can make sure, everything is merged correctly and everywhere.
 
