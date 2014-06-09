@@ -94,7 +94,6 @@ sub configure_flags {
 		'--enable-mbstring',
 		'--enable-bcmath',
 		'--enable-calendar',
-		'--with-iodbc',
 		'--with-mhash',
 		'--with-mysql=mysqlnd',
 		'--with-mysqli=mysqlnd',
@@ -102,6 +101,8 @@ sub configure_flags {
 		'--enable-pcntl',
 		'--enable-zend-multibyte'
 	);
+# Missing in 10.10
+#		'--with-iodbc',
 
 	push @extension_flags, $self->dependency_extension_flags(%args);
 
