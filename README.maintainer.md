@@ -72,7 +72,7 @@ First, make the adjustements in the _5_4_mountainlion_ branch, commit it and the
     git co 5_5_mountainlion
     git merge --log --no-ff 5_4_mountainlion
     git co 5_6_mountainlion
-    git merge --log --no-ff 5_4_mountainlion
+    git merge --log --no-ff 5_5_mountainlion
 
 and on 10.6, we merge from the same PHP version branch from the mountainlion branches (not from the version "below")
 
