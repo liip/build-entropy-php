@@ -35,16 +35,22 @@ This should package and upload all necesseary files.
 
 ## The branches
 
-We currently support three PHP versions, 5.3, 5.4 and 5.5.  Unfortunately I wasn't able to have a compilation process which can target 10.6, 10.7 and 10.8. Therefor you have to compile every version twice. Once for 10.6/7 and once for 10.8, on two different virtual machines with 10.6 and 10.8 (we may ditch older OS Versions one day, and I don't update 10.6/7 every time)
+We currently support four PHP versions, 5.3, 5.4, 5.5 and 5.6.  Unfortunately I wasn't able to have a compilation process which can target 10.6, 10.7 and 10.8/9 and 10.10. Therefor you have to compile every version twice. Once for 10.6/7 and once for 10.8, on two different virtual machines with 10.6 and 10.8 (we may ditch older OS Versions one day, and I don't update 10.6/7 every time)
 
-The in total 6 branches are
+The in total 10 branches are
 
-* 5_3_snowleopard
+* 5_3_snowleopard (end of life)
 * 5_4_snowleopard
 * 5_5_snowleopard
-* 5_3_mountainlion
+* 5_3_mountainlion (end of life)
 * 5_4_mountainlion
 * 5_5_mountainlion
+* 5_6_mountainlion
+* 5_4_yosemite
+* 5_5_yosemite
+* 5_6_yosemite
+
+Since 5.3 is end of life, we don't upgrade that anymore, except for very special reasons
 
 ## Doing a new PHP version
 
@@ -61,23 +67,31 @@ If there's a new PHP version (watch http://php.net/), then you have to do the fo
 
 If you change something besides the PHP version number, you have to be careful with merging it correctly. Don't just change it in every branch and commit, do it the following way (idea taken from https://wiki.php.net/vcs/gitworkflow)
 
-First, make the adjustements in the _5_3_mountainlion_ branch, commit it and then
+First, make the adjustements in the _5_4_mountainlion_ branch, commit it and then
 
-    git co 5_4_mountainlion
-    git merge --log --no-ff 5_3_mountainlion
     git co 5_5_mountainlion
     git merge --log --no-ff 5_4_mountainlion
     git co 5_6_mountainlion
-    git merge --log --no-ff 5_4_mountainlion
+    git merge --log --no-ff 5_5_mountainlion
 
 and on 10.6, we merge from the same PHP version branch from the mountainlion branches (not from the version "below")
 
     git co 5_3_snowleopard
-    git merge --log --no-ff 5_3_mountainlion
+    git merge --log --no-ff origin/5_3_mountainlion
     git co 5_4_snowleopard
-    git merge --log --no-ff 5_4_mountainlion
+    git merge --log --no-ff origin/5_4_mountainlion
     git co 5_5_snowleopard
-    git merge --log --no-ff 5_5_mountainlion
+    git merge --log --no-ff origin/5_5_mountainlion
+
+and the same for 10.10
+
+    git co 5_4_yosemite
+    git merge --log --no-ff origin/5_4_mountainlion
+    git co 5_5_yosemite
+    git merge --log --no-ff origin/5_5_mountainlion
+    git co 5_6_yosemite
+    git merge --log --no-ff origin/5_6_mountainlion
+
 
 and the same for 10.10
 
