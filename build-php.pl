@@ -57,7 +57,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.6.0RC1',
+	version              => '5.6.0RC2',
 	release              => 1,
 	debug                => 1,
 );
