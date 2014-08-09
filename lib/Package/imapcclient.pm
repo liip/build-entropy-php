@@ -26,6 +26,20 @@ sub filename {
 	return "c-client.tar.Z";
 }
 
+sub php_dso_extension_names {
+        my $self = shift @_;
+        return qw(imap);
+}
+
+
+sub package_filelist {
+        my $self = shift @_;
+        return
+                $self->php_dso_extension_paths(),
+                qw(
+                        php.d/50-extension-imap.ini
+                );
+}
 
 sub make_command {
 	my $self = shift @_;
@@ -53,7 +67,7 @@ sub php_extension_configure_flags {
 	my $self = shift @_;
 	my (%args) = @_;
 	my $packagename = $self->packagename();
-	return "--with-imap=../$packagename --with-kerberos=/usr --with-imap-ssl=/usr";
+	return "--with-imap=shared,../$packagename --with-kerberos=/usr --with-imap-ssl=/usr";
 }
 
 
