@@ -17,7 +17,7 @@ use Package::intl;
 use Package::memcached;
 use Package::memcache;
 use Package::xhprof;
-#use Package::twig;
+use Package::twig;
 use Package::APC;
 use Package::solr;
 use Package::oauth;
@@ -84,8 +84,8 @@ $memcache->install();
 my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
 $xhprof->install();
 
-#my $twig = Package::twig->new(config => $config, variant => 'apache2');
-#$twig->install();
+my $twig = Package::twig->new(config => $config, variant => 'apache2');
+$twig->install();
 
 my $APC = Package::APC->new(config => $config, variant => 'apache2');
 $APC->install();
