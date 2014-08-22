@@ -17,9 +17,12 @@ echo  $i
 rm -rf $i
 done
 
+rm -rf download/php-*
+
 rm ~/.pearrc 
 
 rm /usr/local/php5/libphp5.so
 rm -rf /usr/local/php5/lib/php
 rm -rf /usr/local/php5/php.d/
 rm -rf /usr/local/php5/bin/php*
+
