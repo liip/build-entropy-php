@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '7.21.4';
+our $VERSION = '7.37.1';
 
 sub base_url {
 	return "http://curl.haxx.se/download";
@@ -26,7 +26,7 @@ sub configure_flags {
 		'--enable-ldaps',
 		'--disable-dependency-tracking',
 		'--with-ssl=/usr',
-		'--with-libidn='.$self->config()->prefix()  
+		'--with-libidn='.$self->config()->prefix()
 	);
 }
 sub dependency_names {
