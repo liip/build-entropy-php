@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '2.2.3';
+our $VERSION = '2.2.5';
 
 sub init {
     my $self = shift;
@@ -16,7 +16,7 @@ sub init {
 
 sub packagesrcdir {
     my $self = shift @_;
-    return $self->config()->srcdir() . "/" . $self->packagename() . "/"; 
+    return $self->config()->srcdir() . "/" . $self->packagename() . "/";
 }
 
 return 1;
