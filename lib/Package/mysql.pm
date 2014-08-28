@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '5.1.36';
+our $VERSION = '5.6.20';
 
 
 sub init {
