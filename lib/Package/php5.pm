@@ -19,8 +19,8 @@ sub base_url {
 	if ($v ~~ /latest/) {
 		return "http://snaps.php.net";
 	} else {
-		return "http://downloads.php.net/tyrael";
-		#return "http://ch1.php.net/distributions";
+		#return "http://downloads.php.net/tyrael";
+		return "http://ch1.php.net/distributions";
 	}
 }
 
