@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.0.10';
+our $VERSION = '1.0.17';
 
 sub dependency_names {
         return qw(libevent);
