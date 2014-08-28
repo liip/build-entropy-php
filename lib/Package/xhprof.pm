@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '0.9.3';
+our $VERSION = '0.9.4';
 
 sub init {
 	my $self = shift;
@@ -16,7 +16,7 @@ sub init {
 
 sub packagesrcdir {
 	my $self = shift @_;
-	return $self->config()->srcdir() . "/" . $self->packagename() . "/extension"; 
+	return $self->config()->srcdir() . "/" . $self->packagename() . "/extension";
 }
 
 ## The following code is needed, if you download from our own repo instead of pecl
