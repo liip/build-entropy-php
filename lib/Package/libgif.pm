@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '4.2.3';
+our $VERSION = '4.1.6';
 
 sub base_url {
     my $self = shift @_;
