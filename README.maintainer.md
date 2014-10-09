@@ -69,27 +69,27 @@ If you change something besides the PHP version number, you have to be careful w
 
 First, make the adjustements in the _5_4_mountainlion_ branch, commit it and then
 
-    git co 5_5_mountainlion
+    git checkout 5_5_mountainlion
     git merge --log --no-ff 5_4_mountainlion
-    git co 5_6_mountainlion
+    git checkout 5_6_mountainlion
     git merge --log --no-ff 5_5_mountainlion
 
 and on 10.6, we merge from the same PHP version branch from the mountainlion branches (not from the version "below")
 
-    git co 5_3_snowleopard
+    git checkout 5_3_snowleopard
     git merge --log --no-ff origin/5_3_mountainlion
-    git co 5_4_snowleopard
+    git checkout 5_4_snowleopard
     git merge --log --no-ff origin/5_4_mountainlion
-    git co 5_5_snowleopard
+    git checkout 5_5_snowleopard
     git merge --log --no-ff origin/5_5_mountainlion
 
 and the same for 10.10
 
-    git co 5_4_yosemite
+    git checkout 5_4_yosemite
     git merge --log --no-ff origin/5_4_mountainlion
-    git co 5_5_yosemite
+    git checkout 5_5_yosemite
     git merge --log --no-ff origin/5_5_mountainlion
-    git co 5_6_yosemite
+    git checkout 5_6_yosemite
     git merge --log --no-ff origin/5_6_mountainlion
 
 
