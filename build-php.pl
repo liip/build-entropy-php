@@ -58,7 +58,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.4.32',
+	version              => '5.4.33',
 	release              => 1,
 	debug                => 1,
 );
@@ -140,6 +140,9 @@ sub check_dotpear {
 sub check_ltdl {
 	if (glob('/usr/lib/libltdl.*')) {
 		die "/usr/lib/libltdl.* files are present on this system but will be missing on target systems, please move them aside temporarily for the build:\nsudo mkdir -p /usr/lib/off && sudo mv /usr/lib/libltdl.* /usr/lib/off/\n";
+	}
+	if (glob('/usr/local/lib/libltdl.*')) {
+		die "/usr/local/lib/libltdl.* files are present on this system but will be missing on target systems, please move them aside temporarily for the build\n";
 	}
 }
 
