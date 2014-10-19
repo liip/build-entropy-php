@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.7.8';
+our $VERSION = '2.9.2';
 
 
 sub dependency_names {
@@ -40,7 +40,7 @@ sub subpath_for_check {
 sub php_extension_configure_flags {
 	my $self = shift @_;
 	my (%args) = @_;
-	return "--with-libxml-dir=shared," . $self->config()->prefix();
+	return "--with-libxml-dir=" . $self->config()->prefix();
 }
 
 sub make_flags {
