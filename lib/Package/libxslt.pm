@@ -10,7 +10,7 @@ our $VERSION = '1.1.28';
 
 
 sub dependency_names {
-	return qw(libxml2);
+	return qw();
 }
 
 
@@ -33,7 +33,7 @@ sub subpath_for_check {
 
 sub configure_flags {
 	my $self = shift @_;
-	return $self->SUPER::configure_flags() . " --without-crypto --disable-dependency-tracking --without-python --with-libxml-prefix=" . $self->install_prefix();
+	return $self->SUPER::configure_flags() . " --without-crypto --disable-dependency-tracking --without-python --with-libxml-prefix=/usr" #. $self->install_prefix();
 
 }
 
