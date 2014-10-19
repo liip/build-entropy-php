@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
+	 return qw(      icu mssql         libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
 	#before 10.8
 	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
@@ -74,6 +74,7 @@ sub configure_flags {
 
 	my @extension_flags = (
 		"--with-config-file-scan-dir=$prefix/php.d",
+		'--with-libxml-dir=shared,/usr',
 		'--with-openssl=/usr',
 		'--with-zlib=/usr',
 		'--with-zlib-dir=/usr',
@@ -242,7 +243,7 @@ sub cc {
 	# - the -L forces our custom iconv before the apple-supplied one
 	# - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
 	#   i.e. ours and not the system-supplied libxml
-	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I$prefix/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
+	return $self->SUPER::cc(@_) . " -L$prefix/lib -I$prefix/include -I/usr/include/libxml2 -I$prefix/include/tidy -DENTROPY_CH_RELEASE=" . $self->config()->release();
 }
 
 
