@@ -85,6 +85,8 @@ and on 10.6, we merge from the same PHP version branch from the mountainlion bra
 
 and the same for 10.10
 
+    git checkout 5_3_yosemite
+    git merge --log --no-ff origin/5_3_mountainlion
     git checkout 5_4_yosemite
     git merge --log --no-ff origin/5_4_mountainlion
     git checkout 5_5_yosemite
