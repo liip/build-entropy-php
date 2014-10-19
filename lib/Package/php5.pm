@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	return qw(icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
+	return qw(icu mssql libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
 }
 
 sub subpath_for_check {
@@ -72,6 +72,7 @@ sub configure_flags {
 
 	my @extension_flags = (
 		"--with-config-file-scan-dir=$prefix/php.d",
+		'--with-libxml-dir=shared,/usr',
 		'--with-openssl=/usr',
 		'--with-zlib=/usr',
 		'--with-zlib-dir=/usr',
