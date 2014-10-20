@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '6.2';
+our $VERSION = '6.3';
 
 sub init {
         my $self = shift;
