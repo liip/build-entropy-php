@@ -63,4 +63,11 @@ sub install {
 # }
 
 
+sub patchfiles {
+        my $self = shift @_;
+        return qw(libmemcached.patch);
+        #return qw(php-entropy.patch php-entropy-imap.patch);
+}
+
 1;
+
