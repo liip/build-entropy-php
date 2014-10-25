@@ -105,7 +105,6 @@ sub configure_flags {
 		'--enable-pcntl',
 		'--enable-dtrace',
 		'--enable-opcache',
-		'--disable-phpdbg'
 	);
 # Missing in 10.10
 #		'--with-iodbc',
