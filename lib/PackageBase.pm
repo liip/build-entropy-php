@@ -262,6 +262,16 @@ sub install_prefix {
 	return $self->config()->prefix();
 }
 
+sub install_extension_dir {
+        my $self = shift @_;
+        return 'lib/php/extensions/no-debug-non-zts-20131226/';
+}
+
+sub full_install_extension_dir {
+        my $self = shift @_;
+        return $self->install_prefix() . '/' . $self->install_extension_dir();
+}
+
 # prefix for packages we don't want to bundle
 sub install_tmp_prefix {
 	my $self = shift @_;
