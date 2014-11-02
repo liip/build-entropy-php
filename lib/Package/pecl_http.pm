@@ -46,7 +46,7 @@ sub install {
 
         $self->build();
 
-        my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20131226/';
+        my $dst = $self->full_install_extension_dir();
 
         $self->shell(sprintf("sudo cp modules/%s.so $dst", "http"));
         $self->shell({silent => 0}, "echo 'extension=" . $dst . "http.so' > /tmp/60-extension-" . $self->shortname() . ".ini");

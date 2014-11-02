@@ -55,8 +55,7 @@ sub install {
 
 	$self->build();
 
-	my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20100525/';
-
+	my $dst = $self->full_install_extension_dir();
 	$self->shell(sprintf("sudo cp modules/%s.so $dst", lc($self->{PACKAGE_NAME})));
 	$self->extension_ini($dst);
 	$self->mv_ini_to_php_d();

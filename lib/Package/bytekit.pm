@@ -41,15 +41,14 @@ sub install {
 
 	$self->build();
 
-	my $dst = $self->install_prefix() . '/lib/php/extensions/no-debug-non-zts-20100525/';
-
+        my $dst = $self->full_install_extension_dir();
 	$self->shell("sudo cp modules/bytekit.so $dst");
 	$self->shell({silent => 0}, "echo 'extension=" . $dst . $self->shortname() . ".so' > /tmp/50-extension-" . $self->shortname() . ".ini");
 	$self->shell("sudo mv /tmp/50-extension-" . $self->shortname() . ".ini " .$self->install_prefix() . "/php.d/")
 }
 
 sub subpath_for_check {
-	return "lib/php/extensions/no-debug-non-zts-20100525/bytekit.so";
+	return $self->install_extension_dir() . "bytekit.so";
 }
 
 1;
