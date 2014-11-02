@@ -25,6 +25,9 @@ use Package::xslcache;
 #use Package::yaml;
 use Package::mongo;
 use Package::redis;
+use Package::propro;
+use Package::raphf;
+use Package::pecl_http;
 use Package::apcu;
 use Package::igbinary;
 use Package::phpunit;
@@ -109,6 +112,15 @@ $mongo->install();
 
 my $redis = Package::redis->new(config => $config, variant => 'apache2');
 $redis->install();
+
+my $propro = Package::propro->new(config => $config, variant => 'apache2');
+$propro->install();
+
+my $raphf = Package::raphf->new(config => $config, variant => 'apache2');
+$raphf->install();
+
+my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
+$pecl_http->install();
 
 my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
 $apcu->install();
