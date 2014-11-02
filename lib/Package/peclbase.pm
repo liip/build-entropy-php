@@ -73,7 +73,7 @@ sub extension_ini{
 
 sub subpath_for_check {
 	my $self = shift;
-	return sprintf("lib/php/extensions/no-debug-non-zts-20100525/%s.so", lc($self->{PACKAGE_NAME}));
+	return sprintf("%s/%s.so", $self->install_extension_dir(), lc($self->{PACKAGE_NAME}));
 }
 
 1;
