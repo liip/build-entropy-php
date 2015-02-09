@@ -30,5 +30,15 @@ sub configure_flags {
 	
 }
 
+sub cc {
+        my $self = shift @_;
+        my $prefix = $self->config()->prefix();
+
+        # - the -L forces our custom iconv before the apple-supplied one
+        # - the -I makes sure the libxml2 version number for phpinfo() is picked up correctly,
+        #   i.e. ours and not the system-supplied libxml
+        return $self->SUPER::cc(@_) . " -I".$self->config()->phpsrcdir();
+}
+
 
 return 1;
