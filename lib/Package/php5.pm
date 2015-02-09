@@ -135,7 +135,7 @@ sub build_preconfigure {
 
 	$self->cd_packagesrcdir();
     #$self->shell("aclocal");
-    #$self->shell("./buildconf --force");
+    $self->shell("./buildconf --force");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_prefix() . "/lib/*.a");
 	$self->shell({fatal => 0}, "ranlib " . $self->install_tmp_prefix() . "/lib/*.a");
 
