@@ -18,6 +18,7 @@ rm -rf $i
 done
 
 rm -rf download/php-*
+rm -rf download/master.tar.gz
 
 rm ~/.pearrc 
 

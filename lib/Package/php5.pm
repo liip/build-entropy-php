@@ -16,8 +16,9 @@ use base qw(Package);
 sub base_url {
 	my $self = shift @_;
 	my $v = $self->config()->version();
-	if ($v ~~ /latest/) {
-		return "http://snaps.php.net";
+
+	if ($v ~~ /master/) {
+		return "https://github.com/php/php-src/archive";
 	} else {
 		#return "http://downloads.php.net/tyrael";
 		return "http://ch1.php.net/distributions";
@@ -28,8 +29,8 @@ sub base_url {
 sub packagename {
 	my $self = shift @_;
 	my $v = $self->config()->version();
-	if ($v ~~ /latest/) {
-		return "php" . $self->config()->version();
+	if ($v ~~ /master/) {
+		return "" . $self->config()->version();
 	} else {
 		return "php-" . $self->config()->version();
 	}
