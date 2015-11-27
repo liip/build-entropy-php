@@ -107,6 +107,7 @@ sub configure_flags {
 		'--with-pdo-mysql=mysqlnd',
 		'--enable-pcntl',
 		'--enable-dtrace',
+		'--disable-phpdbg',
 		'--enable-opcache',
 	);
 # Missing in 10.10
