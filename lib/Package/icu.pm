@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '4.6';
+our $VERSION = '56.1';
 
 sub base_url {
 	return "http://download.icu-project.org/files/icu4c/" . $VERSION;
