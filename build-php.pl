@@ -60,7 +60,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '7.0.1',
+	version              => '7.0.2',
 	release              => 1,
 	debug                => 1,
 );
@@ -68,9 +68,8 @@ my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
-# TODO: adjust for 7.0
-#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-#$xdebug->install();
+my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+$xdebug->install();
 
 # TODO: adjust for 7.0
 #my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
@@ -135,9 +134,8 @@ $intl->install();
 #my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
 #$pecl_http->install();
 
-# TODO: adjust for 7.0
-#my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
-#$apcu->install();
+my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
+$apcu->install();
 
 # TODO: adjust for 7.0
 #my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
