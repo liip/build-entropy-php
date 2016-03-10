@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '7.38.0';
+our $VERSION = '7.47.1';
 
 sub base_url {
 	return "http://curl.haxx.se/download";
