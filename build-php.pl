@@ -118,21 +118,17 @@ $intl->install();
 #my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
 #$mongo->install();
 
-# TODO: adjust for 7.0
 #my $redis = Package::redis->new(config => $config, variant => 'apache2');
 #$redis->install();
 
-# TODO: adjust for 7.0
-#my $propro = Package::propro->new(config => $config, variant => 'apache2');
-#$propro->install();
+my $propro = Package::propro->new(config => $config, variant => 'apache2');
+$propro->install();
 
-# TODO: adjust for 7.0
-#my $raphf = Package::raphf->new(config => $config, variant => 'apache2');
-#$raphf->install();
+my $raphf = Package::raphf->new(config => $config, variant => 'apache2');
+$raphf->install();
 
-# TODO: adjust for 7.0
-#my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
-#$pecl_http->install();
+my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
+$pecl_http->install();
 
 my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
 $apcu->install();
