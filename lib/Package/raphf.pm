@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '1.0.4';
+our $VERSION = '1.1.2';
 
 sub init {
     my $self = shift;
