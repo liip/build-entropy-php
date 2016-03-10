@@ -25,7 +25,7 @@ sub configure_flags {
 		$self->SUPER::configure_flags(@_),
 		'--enable-ldaps',
 		'--disable-dependency-tracking',
-		'--with-ssl=/usr',
+		'--with-darwinssl',
 		'--with-libidn='.$self->config()->prefix(),
 		'--disable-ares'
 	);
