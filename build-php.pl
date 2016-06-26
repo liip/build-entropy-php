@@ -30,7 +30,7 @@ use Package::raphf;
 use Package::pecl_http;
 use Package::apcu;
 use Package::igbinary;
-use Package::phpunit;
+#use Package::phpunit;
 use Package::libssh2;
 use Package::ssh2;
 
@@ -60,7 +60,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '5.6.21',
+	version              => '5.6.23',
 	release              => 1,
 	debug                => 1,
 );
@@ -133,8 +133,8 @@ $libssh2->install();
 my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
 $ssh2->install();
 
-my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
-$phpunit->install();
+#my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
+#$phpunit->install();
 
 # If there is a ~/.pear directory, "make install-pear" will not work properly
 sub check_dotpear {
