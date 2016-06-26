@@ -49,7 +49,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
+	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
 # before 7.0
 	 return qw(      icu mssql         libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
 	#before 10.8
@@ -78,7 +78,7 @@ sub configure_flags {
 	my @extension_flags = (
 		"--with-config-file-scan-dir=$prefix/php.d",
 		'--with-libxml-dir=shared,/usr',
-		'--with-openssl=/usr',
+		'--with-openssl=/usr/local/php5',
 		'--with-zlib=/usr',
 		'--with-zlib-dir=/usr',
 		'--with-gd',
@@ -192,6 +192,8 @@ sub install {
 	#}
 	$self->shell({silent => 0}, "test -d $prefix/php.d || mkdir $prefix/php.d");
 	$self->shell({silent => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
+	$self->shell({silent => 0}, "curl -o $prefix/ssl/certs/cacert.pem https://curl.haxx.se/ca/cacert.pem");
+    $self->shell({silent => 0}, "echo 'openssl.cafile=/usr/local/php5/ssl/certs/cacert.pem' >> $prefix/php.d/40-openssl.ini");
 
 	$self->create_dso_ini_files();
 
