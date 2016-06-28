@@ -264,7 +264,7 @@ sub install_prefix {
 
 sub install_extension_dir {
         my $self = shift @_;
-        return 'lib/php/extensions/no-debug-non-zts-20151012/';
+        return 'lib/php/extensions/no-debug-non-zts-20160303/';
 }
 
 sub full_install_extension_dir {
