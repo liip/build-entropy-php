@@ -69,8 +69,8 @@ $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
 # TODO: readd for 7.1
-#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-#$xdebug->install();
+my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+$xdebug->install();
 
 # TODO: adjust for 7.0
 #my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
