@@ -23,7 +23,7 @@ use Package::solr;
 use Package::oauth;
 use Package::xslcache;
 #use Package::yaml;
-use Package::mongo;
+use Package::mongodb;
 use Package::redis;
 use Package::propro;
 use Package::raphf;
@@ -78,14 +78,9 @@ $xdebug->install();
 my $intl = Package::intl->new(config => $config, variant => 'apache2');
 $intl->install();
 
-#libmemcached doesn't yet compile on 10.10
 # TODO: adjust for 7.0
 my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
 $memcached->install();
-
-# TODO: adjust for 7.0
-#my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
-#$memcache->install();
 
 # TODO: adjust for 7.0
 #my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
@@ -99,8 +94,8 @@ $memcached->install();
 #$APC->install();
 
 # TODO: adjust for 7.0
-#my $solr = Package::solr->new(config => $config, variant => 'apache2');
-#$solr->install();
+my $solr = Package::solr->new(config => $config, variant => 'apache2');
+$solr->install();
 
 # TODO: adjust for 7.0
 #my $oauth = Package::oauth->new(config => $config, variant => 'apache2');
@@ -110,16 +105,16 @@ $memcached->install();
 #$xslcache->install();
 
 # Needs libYAML to be integrated as well, left for later
-# my $yaml = Package::yaml->new(config => $config, variant => 'apache2');
-# $yaml->install();
+#my $yaml = Package::yaml->new(config => $config, variant => 'apache2');
+#$yaml->install();
 
 
 # TODO: adjust for 7.0
-#my $mongo = Package::mongo->new(config => $config, variant => 'apache2');
-#$mongo->install();
+my $mongodb = Package::mongodb->new(config => $config, variant => 'apache2');
+$mongodb->install();
 
-#my $redis = Package::redis->new(config => $config, variant => 'apache2');
-#$redis->install();
+my $redis = Package::redis->new(config => $config, variant => 'apache2');
+$redis->install();
 
 my $propro = Package::propro->new(config => $config, variant => 'apache2');
 $propro->install();
@@ -134,16 +129,16 @@ my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
 $apcu->install();
 
 # TODO: adjust for 7.0
-#my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
-#$igbinary->install();
+my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
+$igbinary->install();
 
 # TODO: adjust for 7.0
-#my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
-#$libssh2->install();
+my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
+$libssh2->install();
 
 # TODO: adjust for 7.0
-#my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
-#$ssh2->install();
+my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
+$ssh2->install();
 
 #my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 #$phpunit->install();

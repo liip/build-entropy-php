@@ -1,16 +1,16 @@
-package Package::mongo;
+package Package::mongodb;
 
 use strict;
 use warnings;
 
 use base qw(Package::peclbase);
 
-our $VERSION = '1.5.5';
+our $VERSION = '1.2.9';
 
 sub init {
     my $self = shift;
     $self->SUPER::init(@_);
-    $self->{PACKAGE_NAME} = 'mongo';
+    $self->{PACKAGE_NAME} = 'mongodb';
     $self->{VERSION} = $VERSION;
 }
 

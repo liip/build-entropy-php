@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.4.3';
+our $VERSION = '1.8.0';
 
 sub base_url {
 	return "http://libssh2.org/download";
