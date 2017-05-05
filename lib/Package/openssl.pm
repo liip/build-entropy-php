@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.0.2h';
+our $VERSION = '1.0.2k';
 
 sub base_url {
 	return "https://www.openssl.org/source/";
