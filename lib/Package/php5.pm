@@ -48,7 +48,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      openssl icu mssql         libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline);
+	 return qw(      openssl icu mssql         libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline libiodbc);
 	#before 10.8
 	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
@@ -86,6 +86,7 @@ sub configure_flags {
 		'--enable-soap',
 		'--enable-wddx',
 		'--enable-ftp',
+		'--with-iodbc',
 		'--enable-sockets',
 		'--with-bz2=/usr',
 		'--enable-zip',
