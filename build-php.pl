@@ -62,7 +62,7 @@ my $config = Config->new(
 	},
 	version              => '7.0.18',
 	release              => 1,
-	debug                => 1,
+	debug                => 0,
 );
 my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
