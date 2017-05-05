@@ -189,8 +189,9 @@ sub install {
 	#}
 	$self->shell({silent => 0}, "test -d $prefix/php.d || mkdir $prefix/php.d");
 	$self->shell({silent => 0}, "perl -p -i -e 's# -L\\S+c-client##' $prefix/bin/php-config");
-	$self->shell({silent => 0}, "curl -o $prefix/ssl/certs/cacert.pem https://curl.haxx.se/ca/cacert.pem");
-    $self->shell({silent => 0}, "echo 'openssl.cafile=/usr/local/php5/ssl/certs/cacert.pem' >> $prefix/php.d/40-openssl.ini");
+	$self->shell({silent => 0}, "curl -o $prefix/ssl/cert.pem https://curl.haxx.se/ca/cacert.pem");
+    $self->shell({silent => 0}, "echo 'openssl.cafile=/usr/local/php5/ssl/cert.pem' >> $prefix/php.d/40-openssl.ini");
+    $self->shell({silent => 0}, "echo 'curl.cainfo=/usr/local/php5/ssl/cert.pem' >> $prefix/php.d/40-curl.ini");
 
 	$self->create_dso_ini_files();
 

@@ -33,7 +33,7 @@ sub configure_flags {
 
 
 sub subpath_for_check {
-	return "lib/libxml2.dylib";
+	return "lib/libodbc.a";
 }
 
 
