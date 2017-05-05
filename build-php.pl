@@ -15,7 +15,7 @@ use Package::libmemcached;
 use Package::libevent;
 use Package::intl;
 use Package::memcached;
-use Package::memcache;
+#use Package::memcache;
 use Package::xhprof;
 use Package::twig;
 use Package::APC;
@@ -60,7 +60,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '7.0.15',
+	version              => '7.0.18',
 	release              => 1,
 	debug                => 1,
 );
@@ -80,8 +80,8 @@ $intl->install();
 
 #libmemcached doesn't yet compile on 10.10
 # TODO: adjust for 7.0
-#my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
-#$memcached->install();
+my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
+$memcached->install();
 
 # TODO: adjust for 7.0
 #my $memcache = Package::memcache->new(config => $config, variant => 'apache2');
