@@ -26,6 +26,7 @@ sub configure_flags {
 		'--enable-ldaps',
 		'--disable-dependency-tracking',
 		'--with-ssl=/usr/local/php5',
+		'--with-ca-bundle=/usr/local/php5/ssl/cert.pem',
 		'--with-libidn='.$self->config()->prefix(),
 		'--disable-ares'
 	);

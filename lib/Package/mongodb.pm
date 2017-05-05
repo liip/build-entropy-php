@@ -14,6 +14,15 @@ sub init {
     $self->{VERSION} = $VERSION;
 }
 
+sub configure_flags {
+	my $self = shift @_;
+	return join " ", (
+		$self->SUPER::configure_flags(@_),
+		'--with-openssl-dir=' .	$self->config()->prefix()
+	);
+	
+}
+
 sub packagesrcdir {
     my $self = shift @_;
     return $self->config()->srcdir() . "/" . $self->packagename() . "/";
