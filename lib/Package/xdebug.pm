@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.5.0';
+our $VERSION = '2.5.3';
 
 sub base_url {
     return "http://xdebug.org/files/";
@@ -68,8 +68,8 @@ sub install {
     $self->shell({silent => 0}, "echo 'xdebug.profiler_enable_trigger=1' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.profiler_output_name=xdebug-profile-cachegrind.out-%H-%R' >> /tmp/50-extension-" . $self->shortname() . ".ini");
     $self->shell({silent => 0}, "echo 'xdebug.var_display_max_children = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    $self->shell({silent => 0}, "echo 'xdebug.var_display_max_data = 2048' >> /tmp/50-extension-" . $self->shortname() . ".ini");
-    $self->shell({silent => 0}, "echo 'xdebug.var_display_max_depth = 128' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo 'xdebug.var_display_max_data = 512' >> /tmp/50-extension-" . $self->shortname() . ".ini");
+    $self->shell({silent => 0}, "echo 'xdebug.var_display_max_depth = 3' >> /tmp/50-extension-" . $self->shortname() . ".ini");
 
     $self->shell("sudo mv /tmp/50-extension-" . $self->shortname() . ".ini " .$self->install_prefix() . "/php.d/")
 }
