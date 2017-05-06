@@ -67,7 +67,7 @@ sub php_extension_configure_flags {
 	my $self = shift @_;
 	my (%args) = @_;
 	my $packagename = $self->packagename();
-	return "--with-imap=shared,../$packagename --with-kerberos=/usr --with-imap-ssl=/usr";
+	return "--with-imap=shared,../$packagename --with-kerberos=/usr --with-imap-ssl=/usr/local/php5";
 }
 
 
