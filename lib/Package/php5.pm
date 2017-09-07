@@ -20,8 +20,8 @@ sub base_url {
 	if ($v ~~ /master/) {
 		return "https://github.com/php/php-src/archive";
 	} else {
-		#return "https://downloads.php.net/~krakjoe/";
-		return "http://ch1.php.net/distributions";
+		return "https://downloads.php.net/~remi/";
+		#return "http://ch1.php.net/distributions";
 	}
 }
 
@@ -49,7 +49,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy gmp readline libiodbc);
+	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql libmcrypt  tidy gmp readline libiodbc);
 	#before 10.8
 	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }

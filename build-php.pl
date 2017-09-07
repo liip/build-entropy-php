@@ -14,6 +14,7 @@ use Package::uploadprogress;
 use Package::libmemcached;
 use Package::libevent;
 use Package::intl;
+use Package::mcrypt;
 use Package::memcached;
 #use Package::memcache;
 use Package::xhprof;
@@ -60,7 +61,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '7.1.8',
+	version              => '7.2.0RC1',
 	release              => 1,
 	debug                => 0,
 );
@@ -68,9 +69,9 @@ my $php = Package::php5->new(config => $config, variant => 'apache2');
 $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
-# TODO: readd for 7.1
-my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-$xdebug->install();
+# TODO: readd for 7.2
+#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+#$xdebug->install();
 
 # TODO: adjust for 7.0
 #my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
@@ -94,9 +95,9 @@ $memcached->install();
 #my $APC = Package::APC->new(config => $config, variant => 'apache2');
 #$APC->install();
 
-# TODO: adjust for 7.0
-my $solr = Package::solr->new(config => $config, variant => 'apache2');
-$solr->install();
+# TODO: adjust for 7.2
+#my $solr = Package::solr->new(config => $config, variant => 'apache2');
+#$solr->install();
 
 # TODO: adjust for 7.0
 #my $oauth = Package::oauth->new(config => $config, variant => 'apache2');
@@ -116,6 +117,8 @@ $mongodb->install();
 
 my $redis = Package::redis->new(config => $config, variant => 'apache2');
 $redis->install();
+my $mcrypt = Package::mcrypt->new(config => $config, variant => 'apache2');
+$mcrypt->install();
 
 my $propro = Package::propro->new(config => $config, variant => 'apache2');
 $propro->install();

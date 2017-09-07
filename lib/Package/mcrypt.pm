@@ -3,57 +3,42 @@ package Package::mcrypt;
 use strict;
 use warnings;
 
-use base qw(Package);
+use base qw(Package::peclbase);
 
-our $VERSION = '2.5.8';
+our $VERSION = '1.0.1';
 
-
-sub base_url {
-	return "http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/$VERSION";
-}
-
-
-sub packagename {
-	return "libmcrypt-" . $VERSION;
-}
-
-
-
-sub subpath_for_check {
-	return "lib/libmcrypt.dylib";
-}
-
-
-
-sub php_extension_configure_flags {
-	my $self = shift @_;
-	my (%args) = @_;
-	return "--with-mcrypt=shared," . $self->config()->prefix();
+sub init {
+    my $self = shift;
+    $self->SUPER::init(@_);
+    $self->{PACKAGE_NAME} = 'mcrypt';
+    $self->{VERSION} = $VERSION;
 }
 
 sub configure_flags {
 	my $self = shift @_;
-	return $self->SUPER::configure_flags(@_) . " --disable-dependency-tracking";
+	return join " ", (
+		$self->SUPER::configure_flags(@_),
+		'--with-mcrypt=' .	$self->config()->prefix() 
+	);
+	
+}
+
+sub packagesrcdir {
+    my $self = shift @_;
+    return $self->config()->srcdir() . "/" . $self->packagename() . "/";
+}
+
+sub package_filelist {
+        my $self = shift @_;
+        return $self->php_dso_extension_paths(), qw(
+                lib/libmcrypt*.dylib
+                php.d/50-extension-mcrypt.ini
+        );
 }
 
 sub php_dso_extension_names {
-	my $self = shift @_;
-	return $self->shortname();
+        my $self = shift @_;
+        return $self->shortname();
 }
 
-
-
-
-sub package_filelist {
-	my $self = shift @_;
-	return $self->php_dso_extension_paths(), qw(
-		lib/libmcrypt*.dylib
-		php.d/50-extension-mcrypt.ini
-	);
-}
-
-
-
-
-
-1;
+return 1;
