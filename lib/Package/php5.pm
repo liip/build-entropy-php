@@ -20,7 +20,8 @@ sub base_url {
 	if ($v ~~ /master/) {
 		return "https://github.com/php/php-src/archive";
 	} else {
-		return "https://downloads.php.net/~remi/";
+		return "https://downloads.php.net/~pollita/";
+#		return "https://downloads.php.net/~remi/";
 		#return "http://ch1.php.net/distributions";
 	}
 }
