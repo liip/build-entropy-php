@@ -80,9 +80,9 @@ $php->install();
 my $intl = Package::intl->new(config => $config, variant => 'apache2');
 $intl->install();
 
-# TODO: adjust for 7.0
-my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
-$memcached->install();
+# TODO: adjust for 7.3
+#my $memcached = Package::memcached->new(config => $config, variant => 'apache2');
+#$memcached->install();
 
 # TODO: adjust for 7.0
 #my $xhprof = Package::xhprof->new(config => $config, variant => 'apache2');
@@ -126,8 +126,9 @@ $propro->install();
 my $raphf = Package::raphf->new(config => $config, variant => 'apache2');
 $raphf->install();
 
-my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
-$pecl_http->install();
+# TODO: adjust for 7.3
+#my $pecl_http = Package::pecl_http->new(config => $config, variant => 'apache2');
+#$pecl_http->install();
 
 my $apcu = Package::apcu->new(config => $config, variant => 'apache2');
 $apcu->install();
@@ -136,13 +137,13 @@ $apcu->install();
 my $igbinary = Package::igbinary->new(config => $config, variant => 'apache2');
 $igbinary->install();
 
-# TODO: adjust for 7.0
-my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
-$libssh2->install();
+# TODO: adjust for 7.3
+#my $libssh2 = Package::libssh2->new(config => $config, variant => 'apache2');
+#$libssh2->install();
 
-# TODO: adjust for 7.0
-my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
-$ssh2->install();
+# TODO: adjust for 7.3
+#my $ssh2 = Package::ssh2->new(config => $config, variant => 'apache2');
+#$ssh2->install();
 
 #my $phpunit = Package::phpunit->new(config => $config, variant => 'apache2');
 #$phpunit->install();
