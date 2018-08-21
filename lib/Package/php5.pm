@@ -21,7 +21,6 @@ sub base_url {
 		return "https://github.com/php/php-src/archive";
 	} else {
 		return "https://downloads.php.net/~cmb/";
-		#return "http://ch1.php.net/distributions";
 	}
 }
 
