@@ -61,7 +61,7 @@ my $config = Config->new(
 			suffix       => '-apache2',
 		},
 	},
-	version              => '7.2.7',
+	version              => '7.2.9',
 	release              => 1,
 	debug                => 0,
 );
@@ -70,8 +70,8 @@ $config->{phpsrcdir} = $php->packagesrcdir();
 $php->install();
 
 # TODO: readd for 7.2
-#my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
-#$xdebug->install();
+my $xdebug = Package::xdebug->new(config => $config, variant => 'apache2');
+$xdebug->install();
 
 # TODO: adjust for 7.0
 #my $upload = Package::uploadprogress->new(config => $config, variant => 'apache2');
