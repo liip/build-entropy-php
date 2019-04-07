@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.7.0';
+our $VERSION = '2.7.1';
 
 sub base_url {
     return "http://xdebug.org/files/";
