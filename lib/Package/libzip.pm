@@ -1,11 +1,11 @@
-package Package::libxml2;
+package Package::libzip;
 
 use strict;
 use warnings;
 
 use base qw(Package);
 
-our $VERSION = '2.9.2';
+our $VERSION = '1.5.2';
 
 
 sub dependency_names {
@@ -16,31 +16,31 @@ sub dependency_names {
 
 sub base_url {
 	#return "ftp://fr.rpmfind.net/pub/libxml";
-	return "http://xmlsoft.org/sources";
+	return "https://libzip.org/download/";
 }
 
 
 sub packagename {
-	return "libxml2-" . $VERSION;
+	return "lipzip-" . $VERSION;
 }
 
 
 sub configure_flags {
 	my $self = shift @_;
 	my $prefix = $self->config()->prefix();
-	return $self->SUPER::configure_flags() . " --disable-dependency-tracking --without-python";
+	return $self->SUPER::configure_flags();
 }
 
 
 sub subpath_for_check {
-	return "lib/libxml2.dylib";
+	return "lib/libzip.dylib";
 }
 
 
 sub php_extension_configure_flags {
 	my $self = shift @_;
 	my (%args) = @_;
-	return "--with-libxml-dir=" . $self->config()->prefix();
+	return  $self->config()->prefix();
 }
 
 sub make_flags {

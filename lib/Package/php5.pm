@@ -49,7 +49,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql libmcrypt  tidy gmp readline libiodbc);
+	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql libmcrypt  tidy gmp readline libiodbc libzip);
 	#before 10.8
 	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
