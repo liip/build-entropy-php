@@ -49,7 +49,7 @@ sub packagesrcdir {
 }
 
 sub dependency_names {
-	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql libmcrypt  tidy gmp readline libiodbc libzip);
+	 return qw(      openssl icu          libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql libmcrypt  tidy gmp readline libiodbc);
 	#before 10.8
 	#return qw(iconv icu mssql libxml2 libxslt imapcclient gettext curl libpng libjpeg libtiff libgif libfreetype postgresql mcrypt tidy);
 }
@@ -80,6 +80,7 @@ sub configure_flags {
 		'--with-zlib=/usr',
 		'--with-zlib-dir=/usr',
 		'--with-gd',
+                '--without-libzip',
 #		'--with-ldap',
 		'--enable-exif',
 		'--with-xmlrpc',
@@ -90,7 +91,7 @@ sub configure_flags {
 		'--with-iodbc',
 		'--enable-sockets',
 		'--with-bz2=/usr',
-#		'--enable-zip',
+		'--enable-zip',
 		'--enable-pcntl',
 		'--enable-shmop',
 		'--enable-sysvsem',

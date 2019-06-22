@@ -16,12 +16,12 @@ sub dependency_names {
 
 sub base_url {
 	#return "ftp://fr.rpmfind.net/pub/libxml";
-	return "https://libzip.org/download/";
+	return "https://libzip.org/download";
 }
 
 
 sub packagename {
-	return "lipzip-" . $VERSION;
+	return "libzip-" . $VERSION;
 }
 
 
