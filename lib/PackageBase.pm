@@ -121,9 +121,9 @@ sub download {
 	$_->download() foreach $self->dependencies();
 	return if ($self->is_downloaded());
 	$self->log("downloading $self from " . $self->url());
-   #     $self->shell('wget', '-O', $self->download_path(), $self->url());
+        $self->shell('wget', '-O', $self->download_path(), $self->url());
 
-       $self->shell('/usr/local/Cellar/curl/7.38.0/bin/curl', '-L -o', $self->download_path(), $self->url());
+   #    $self->shell('/usr/local/Cellar/curl/7.38.0/bin/curl', '-L -o', $self->download_path(), $self->url());
 
 }
 
