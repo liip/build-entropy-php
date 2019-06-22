@@ -1,11 +1,11 @@
-package Package::libzip;
+package Package::libsodium;
 
 use strict;
 use warnings;
 
 use base qw(Package);
 
-our $VERSION = '1.5.2';
+our $VERSION = '1.0.18-stable';
 
 
 sub dependency_names {
@@ -15,13 +15,12 @@ sub dependency_names {
 
 
 sub base_url {
-	#return "ftp://fr.rpmfind.net/pub/libxml";
-	return "https://libzip.org/download/";
+	return "https://download.libsodium.org/libsodium/releases";
 }
 
 
 sub packagename {
-	return "lipzip-" . $VERSION;
+	return "libsodium-" . $VERSION;
 }
 
 
@@ -33,7 +32,7 @@ sub configure_flags {
 
 
 sub subpath_for_check {
-	return "lib/libzip.dylib";
+	return "lib/libsodium.dylib";
 }
 
 
